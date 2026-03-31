@@ -63,7 +63,7 @@
         };
 
         "org/gnome/settings-daemon/plugins/media-keys" = {
-          screensaver = [];
+          screensaver = ["F7"];
         };
 
         "org/gnome/shell/keybidings" = {

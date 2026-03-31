@@ -8,6 +8,7 @@
     ./infomatic/gradia.nix
     ./infomatic/planify.nix
     ./infomatic/teams.nix
+    ./infomatic/affine.nix
     ./music/spotify.nix
     ./music/spotube.nix
     ./music/gapless.nix

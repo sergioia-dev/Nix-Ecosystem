@@ -74,12 +74,13 @@
     };
 
     infomatic = {
-      gradia.enable = false;
+      gradia.enable = true;
       planify.enable = true;
       only-office.enable = true;
       teams.enable = false;
       mendeley.enable = false;
       video-editing.enable = false;
+      affine.enable = true;
     };
 
     music = {

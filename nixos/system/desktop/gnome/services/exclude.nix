@@ -16,10 +16,8 @@
       evince # document viewer
       file-roller # archive manager
       gnome-characters
-      gnome-contacts
       gnome-font-viewer
       gnome-logs
-      gnome-maps
       gnome-music
       gnome-photos
       gnome-screenshot
@@ -31,6 +29,8 @@
       gnome-tour
       gnome-terminal
       # gnome-console
+      # gnome-maps
+      # gnome-contacts
       # geary
     ];
     services.xserver.excludePackages = with pkgs; [xterm];

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./system/systemBundle.nix
     ./database/databaseBundle.nix
@@ -8,6 +8,10 @@
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  services.flatpak.enable = false;
+
+  virtualisation.waydroid.enable = false;
 
   nix.settings = {
     download-buffer-size = 524288000;
@@ -39,10 +43,11 @@
   };
 
   tool = {
+    podman.enable = true;
     tomcat.enable = false;
     docker.enable = false;
     nginx.enable = false;
-    virtManager.enable = true;
+    virtManager.enable = false;
     steam.enable = true;
   };
 
@@ -89,7 +94,7 @@
   # Enable sound with pipewire.
   security.rtkit.enable = true;
 
-  programs.adb.enable = true;
+  # programs.adb.enable = true;
 
   users.users.k1 = {
     isNormalUser = true;
@@ -99,6 +104,7 @@
       "wheel"
       "video"
       "kvm"
+      # "adbusers"
     ];
   };
 
