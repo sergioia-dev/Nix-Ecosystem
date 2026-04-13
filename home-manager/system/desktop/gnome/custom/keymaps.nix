@@ -46,7 +46,7 @@
         };
 
         "org/gnome/shell/app-switcher" = {
-          current-workspace-only = true;
+          current-workspace-only = false;
         };
 
         "org/gnome/desktop/peripherals/touchpad" = {
@@ -54,7 +54,12 @@
         };
 
         "org/gnome/mutter" = {
-          dynamic-workspaces = true;
+          dynamic-workspaces = false;
+          workspaces-only-on-primary = false;
+        };
+
+        "org/gnome/desktop/wm/preferences" = {
+          num-workspaces = 5;
         };
 
         "org/gnome/mutter/keybindings" = {
@@ -66,19 +71,9 @@
           screensaver = ["F7"];
         };
 
-        "org/gnome/shell/keybidings" = {
+        "org/gnome/shell/keybindings" = {
           toggle-quick-setting = ["<Super>q"];
           toggle-message-tray = ["<Super>s"];
-        };
-
-        "org/gnome/shell/extensions/paperwm" = {
-          show-window-position-bar = false;
-          horizontal-margin = 5;
-          selection-border-radius-top = 5;
-          selection-border-size = 5;
-          vertical-margin = 5;
-          vertical-margin-bottom = 5;
-          window-gap = 10;
         };
 
         "org/gnome/desktop/wm/keybindings" = {
