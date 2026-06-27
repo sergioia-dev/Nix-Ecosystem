@@ -56,7 +56,7 @@
   console = {
     terminal = {
       kitty.enable = false;
-      foot.enable = false;
+      foot.enable = true;
     };
 
     shell = {
@@ -68,29 +68,33 @@
 
   app = {
     browser = {
-      brave.enable = true;
-      firefox.enable = false;
+      brave.enable = false;
+      firefox.enable = true;
+      chromium.enable = true;
     };
 
     infomatic = {
       gradia.enable = true;
       planify.enable = true;
       libreoffice.enable = true;
-      wordbook.enable = true;
+      foliate.enable = false; # doesn't work well
       affine.enable = true;
+      geary.enable = true;
+      wordbook.enable = true;
       only-office.enable = false;
       teams.enable = false;
-      mendeley.enable = false;
+      mendeley.enable = true;
       video-editing.enable = false;
     };
 
     music = {
       spotify.enable = false;
       spotube.enable = false;
-      gapless.enable = false;
+      gapless.enable = true;
     };
 
     other = {
+      signal.enable = true;
       tangram.enable = false;
       discord.enable = true;
       ferdium.enable = false;
@@ -105,7 +109,7 @@
   home = {
     username = "k1";
     homeDirectory = "/home/k1";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
   };
 
   nixpkgs.config.allowUnfree = true;

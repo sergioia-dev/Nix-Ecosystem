@@ -21,15 +21,12 @@
       eza
       fzf
       bat
-      ffmpeg
       zoxide
       wl-clipboard
       curl
-      # opencode
     ];
 
     home.shellAliases = {
-      format = "ffmpeg -i";
       unrar = "unrar x";
       cat = "bat --theme='Catppuccin Mocha' --color=always";
       fm = "xdg-open";

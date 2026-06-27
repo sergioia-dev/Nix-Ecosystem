@@ -15,8 +15,6 @@
 
   services.flatpak.enable = false;
 
-  virtualisation.waydroid.enable = false;
-
   nix.settings = {
     download-buffer-size = 524288000;
     substituters = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
@@ -53,6 +51,7 @@
     nginx.enable = false;
     virtManager.enable = false;
     steam.enable = true;
+    waydroid.enable = false;
   };
 
   boot.loader = {
@@ -124,5 +123,5 @@
     ];
   };
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "26.05"; # Did you read the comment?
 }

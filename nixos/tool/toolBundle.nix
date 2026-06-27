@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./docker.nix
     ./podman.nix
@@ -6,5 +7,6 @@
     ./virt-manager.nix
     ./tomcat.nix
     ./steam.nix
+    ./waydroid.nix
   ];
 }

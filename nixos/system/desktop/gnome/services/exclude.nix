@@ -32,7 +32,7 @@
       # gnome-console
       # gnome-maps
       # gnome-contacts
-      # geary
+      geary
     ];
 
     services.xserver.excludePackages = with pkgs; [ xterm ];

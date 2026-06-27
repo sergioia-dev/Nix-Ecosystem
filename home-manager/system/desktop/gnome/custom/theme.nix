@@ -67,8 +67,9 @@
         };
 
         "org/gnome/shell/extensions/Battery-Health-Charging" = {
-          indicator-position = 5;
-          indicator-position-index = 20;
+          indicator-position = 4;
+          indicator-position-index = 21;
+          skip-threshold-verification = true;
         };
 
         "org/gnome/Console" = {
@@ -76,6 +77,11 @@
           theme = "auto";
           use-system-font = true;
           font-scale = 1.2;
+        };
+
+        "org/gnome/shell/extensions/nightthemeswitcher/time" = {
+          manual-schedule = true;
+          sunset = 18;
         };
 
         # PaperWM Extension
@@ -112,6 +118,11 @@
         # Top Panel Logo Extension
         "org/gnome/shell/extensions/top-panel-logo" = {
           left-click-action = 1;
+        };
+
+        # Brightness control for all monitor at the same time
+        "org/gnome/shell/extensions/soft-brightness-plus" = {
+          use-backlight = true;
         };
 
         "org/gnome/shell/extensions/dynamic-music-pill" = {

@@ -4,15 +4,18 @@
   pkgs-unstable,
   lib,
   ...
-}: let
+}:
+let
   unstable-extensions = with pkgs-unstable.gnomeExtensions; [
-    dynamic-music-pill
   ];
-in {
-  options.system.desktop.gnome.custom.extensions.enable = lib.mkEnableOption "Enable Gnome Extensions";
+in
+{
+  options.system.desktop.gnome.custom.extensions.enable =
+    lib.mkEnableOption "Enable Gnome Extensions";
 
   config = lib.mkIf config.system.desktop.gnome.custom.extensions.enable {
-    home.packages = with pkgs.gnomeExtensions;
+    home.packages =
+      with pkgs.gnomeExtensions;
       [
         removable-drive-menu
         gsconnect
@@ -25,6 +28,9 @@ in {
         battery-health-charging
         light-style
         vertical-workspaces
+        soft-brightness-plus
+        dynamic-music-pill
+        night-theme-switcher
       ]
       ++ unstable-extensions;
 
@@ -33,7 +39,8 @@ in {
       settings = {
         "org/gnome/shell" = {
           disable-user-extensions = false;
-          enabled-extensions = with pkgs.gnomeExtensions;
+          enabled-extensions =
+            with pkgs.gnomeExtensions;
             [
               removable-drive-menu.extensionUuid
               touchpad-switcher.extensionUuid
@@ -46,6 +53,9 @@ in {
               battery-health-charging.extensionUuid
               light-style.extensionUuid
               vertical-workspaces.extensionUuid
+              soft-brightness-plus.extensionUuid
+              dynamic-music-pill.extensionUuid
+              night-theme-switcher.extensionUuid
             ]
             ++ map (ext: ext.extensionUuid) unstable-extensions;
         };

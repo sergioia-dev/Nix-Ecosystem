@@ -20,13 +20,13 @@
         };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
           name = "Open terminal";
-          command = "kgx";
+          command = "foot";
           binding = "<Control><Shift>t";
         };
 
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
           name = "Open the Web browser";
-          command = "brave";
+          command = "firefox";
           binding = "<Control><Shift>b";
         };
 

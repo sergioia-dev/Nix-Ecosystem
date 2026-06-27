@@ -2,6 +2,7 @@
   imports = [
     ./browser/brave.nix
     ./browser/firefox.nix
+    ./browser/chromium.nix
     ./infomatic/mendeley.nix
     ./infomatic/only-office.nix
     ./infomatic/libreoffice.nix
@@ -11,6 +12,8 @@
     ./infomatic/teams.nix
     ./infomatic/affine.nix
     ./infomatic/wordbook.nix
+    ./infomatic/foliate.nix
+    ./infomatic/geary.nix
     ./music/spotify.nix
     ./music/spotube.nix
     ./music/gapless.nix
@@ -18,5 +21,6 @@
     ./others/element.nix
     ./others/tangram.nix
     ./others/ferdium.nix
+    ./others/signal.nix
   ];
 }

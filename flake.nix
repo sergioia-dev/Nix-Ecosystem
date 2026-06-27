@@ -1,39 +1,50 @@
 {
   description = "One flake to rule them All";
 
+  nixConfig = {
+    substituters = [
+      "https://aseipp-nix-cache.global.ssl.fastly.net"
+      "https://cache.nixos.org" # Keep official as fallback
+    ];
+  };
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    ...
-  } @ inputs: let
-    lib = nixpkgs.lib;
-    system = "x86_64-linux";
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-  in {
-    nixosConfigurations.k1 = lib.nixosSystem {
-      inherit system;
-      modules = [
-        ./nixos/configuration.nix
-      ];
-    };
 
-    homeConfigurations.k1 = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages."${system}";
-      modules = [
-        ./home-manager/home.nix
-      ];
-      extraSpecialArgs = {inherit inputs pkgs-unstable;};
-    };
   };
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    in
+    {
+      nixosConfigurations.nixos = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./nixos/configuration.nix
+        ];
+      };
+
+      homeConfigurations.k1 = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."${system}";
+        modules = [
+          ./home-manager/home.nix
+        ];
+        extraSpecialArgs = { inherit inputs pkgs-unstable; };
+      };
+    };
 }
