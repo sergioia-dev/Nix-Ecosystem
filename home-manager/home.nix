@@ -46,6 +46,10 @@
       helix.enable = false;
     };
 
+    AI = {
+      opencode.enable = true;
+    };
+
     tool = {
       obsidian.enable = false;
       logseq.enable = false;
@@ -56,7 +60,12 @@
   console = {
     terminal = {
       kitty.enable = false;
-      foot.enable = true;
+      foot.enable = false;
+    };
+
+    multiplexer = {
+      herdr.enable = true;
+      tmux.enable = true;
     };
 
     shell = {
@@ -70,18 +79,22 @@
     browser = {
       brave.enable = false;
       firefox.enable = true;
-      chromium.enable = true;
+      chromium.enable = false;
     };
 
     infomatic = {
       gradia.enable = true;
       planify.enable = true;
-      libreoffice.enable = true;
+      only-office.enable = true;
+      libreoffice.enable = false;
       foliate.enable = false; # doesn't work well
-      affine.enable = true;
-      geary.enable = true;
+      affine.enable = false;
+      logseq.enable = true;
+      geary = {
+        enable = true;
+        autostart = true;
+      };
       wordbook.enable = true;
-      only-office.enable = false;
       teams.enable = false;
       mendeley.enable = true;
       video-editing.enable = false;
@@ -93,13 +106,27 @@
       gapless.enable = true;
     };
 
-    other = {
-      signal.enable = true;
-      tangram.enable = false;
+    messaging = {
+      telegram.enable = true;
       discord.enable = true;
-      ferdium.enable = false;
-      element.enable = false;
+      element.enable = true;
+      signal.enable = false;
+      karere = {
+        enable = true;
+        autostart = true;
+      };
     };
+
+    other = {
+      tangram = {
+        enable = false;
+        autostart = false;
+      };
+      secrets.enable = true;
+      ferdium.enable = false;
+      denaro.enable = false;
+    };
+
   };
 
   system = {

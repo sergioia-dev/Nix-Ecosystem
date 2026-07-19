@@ -18,7 +18,6 @@ in
       with pkgs.gnomeExtensions;
       [
         removable-drive-menu
-        gsconnect
         touchpad-switcher
         app-name-indicator
         caffeine
@@ -31,6 +30,8 @@ in
         soft-brightness-plus
         dynamic-music-pill
         night-theme-switcher
+        gsconnect
+        cronomix
       ]
       ++ unstable-extensions;
 
@@ -56,6 +57,8 @@ in
               soft-brightness-plus.extensionUuid
               dynamic-music-pill.extensionUuid
               night-theme-switcher.extensionUuid
+              gsconnect.extensionUuid
+              cronomix.extensionUuid
             ]
             ++ map (ext: ext.extensionUuid) unstable-extensions;
         };

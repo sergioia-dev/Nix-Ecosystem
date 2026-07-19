@@ -1,0 +1,10 @@
+{
+  "theme": "catppuccin",
+  "keybinds": {
+    "leader": "ctrl+x",
+    "app_exit": "ctrl+c,<leader>q",
+    "messages_half_page_up": "ctrl+u",
+    "messages_half_page_down": "ctrl+d",
+    "session_delete": "none"
+  }
+}

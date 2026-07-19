@@ -28,11 +28,12 @@
       gnome-text-editor
       gnome-tour
       gnome-terminal
+      gnome-clocks
+      geary
       # evince # document viewer
       # gnome-console
       # gnome-maps
       # gnome-contacts
-      geary
     ];
 
     services.xserver.excludePackages = with pkgs; [ xterm ];

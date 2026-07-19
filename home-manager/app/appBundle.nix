@@ -14,13 +14,18 @@
     ./infomatic/wordbook.nix
     ./infomatic/foliate.nix
     ./infomatic/geary.nix
+    ./infomatic/logseq.nix
     ./music/spotify.nix
     ./music/spotube.nix
     ./music/gapless.nix
-    ./others/discord.nix
-    ./others/element.nix
+    ./messaging/signal.nix
+    ./messaging/telegram.nix
+    ./messaging/karere.nix
+    ./messaging/discord.nix
+    ./messaging/element.nix
+    ./others/denaro.nix
+    ./others/secrets.nix
     ./others/tangram.nix
     ./others/ferdium.nix
-    ./others/signal.nix
   ];
 }

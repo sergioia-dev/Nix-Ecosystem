@@ -20,7 +20,7 @@
         };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
           name = "Open terminal";
-          command = "foot";
+          command = "kgx";
           binding = "<Control><Shift>t";
         };
 

@@ -1,8 +1,28 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
+let
+  gnomeContrastSync = pkgs.writeShellScriptBin "gnome-contrast-sync" ''
+    # Ensure gsettings can find its schemas
+    export XDG_DATA_DIRS=$XDG_DATA_DIRS:${pkgs.gsettings-desktop-schemas}/share/gsettings-desktop-schemas
+
+    # Monitor GNOME color scheme changes
+    ${pkgs.glib}/bin/gsettings monitor org.gnome.desktop.interface color-scheme | while read -r line; do
+        # Check if the theme switched to dark mode
+        if echo "$line" | grep -q "'prefer-dark'"; then
+            ${pkgs.glib}/bin/
+            gsettings set org.gnome.desktop.a11y.interface high-contrast true
+
+        else
+            ${pkgs.glib}/bin/gsettings set org.gnome.desktop.a11y.interface high-contrast false
+        fi
+    done
+  '';
+
+in
 {
   options.system.desktop.gnome.custom.theme.enable = lib.mkEnableOption "Enable Gnome Extensions";
 
@@ -11,7 +31,6 @@
       settings = {
         "org/gnome/desktop/interface" = {
           accent-color = "blue";
-          color-scheme = "prefer-dark";
           show-battery-percentage = true;
           cursor-theme = "Adwaita";
           enable-hot-corners = false;
@@ -82,6 +101,8 @@
         "org/gnome/shell/extensions/nightthemeswitcher/time" = {
           manual-schedule = true;
           sunset = 18;
+          offset = 0;
+          nightthemeswitcher-ondemand-keybiding = [ "" ];
         };
 
         # PaperWM Extension
@@ -144,6 +165,24 @@
           action-hover = "toggle-menu";
           action-right-click = "toggle-menu";
         };
+      };
+    };
+
+    systemd.user.services.gnome-contrast-sync = {
+      Unit = {
+        Description = "Sync GNOME High Contrast mode with Dark Mode";
+        After = [ "graphical-session.target" ];
+        Partof = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        ExecStart = "${gnomeContrastSync}/bin/gnome-contrast-sync";
+        Restart = "on-failure";
+        RestartSec = 5;
+      };
+
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
       };
     };
   };

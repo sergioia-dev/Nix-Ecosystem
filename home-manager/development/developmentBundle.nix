@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./language/dart.nix
     ./language/python.nix
@@ -20,5 +21,6 @@
     ./database/redis.nix
     ./database/mongodb.nix
     ./database/sqlite.nix
+    ./AI/opencode.nix
   ];
 }

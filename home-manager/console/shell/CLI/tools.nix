@@ -5,9 +5,6 @@
   ...
 }:
 {
-  imports = [
-    ./tmux.nix
-  ];
 
   options.console.shell.tools.enable = lib.mkEnableOption "Enable CLI-Tools terminal";
 
@@ -47,8 +44,5 @@
         rounded_corners = true;
       };
     };
-
-    home.file.".config/posting/config.yaml".source =
-      ../../../development/settings/configurations/posting-config.yaml;
   };
 }
