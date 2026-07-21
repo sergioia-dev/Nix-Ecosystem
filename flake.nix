@@ -32,10 +32,10 @@
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
-      nixosConfigurations.nixos = lib.nixosSystem {
+      nixosConfigurations.desktop = lib.nixosSystem {
         inherit system;
         modules = [
-          ./nixos/configuration.nix
+          ./nixos/desktop/configuration.nix
         ];
       };
 
