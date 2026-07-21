@@ -59,13 +59,13 @@
     ];
   };
 
-  # programs.tmux = {
-  #   enable = true;
-  #   plugins = with pkgs.tmuxPlugins; [
-  #     resurrect
-  #     sensible
-  #   ];
-  # };
+  programs.tmux = {
+    enable = true;
+    plugins = with pkgs.tmuxPlugins; [
+      resurrect
+      sensible
+    ];
+  };
 
   services.logind.lidSwitchExternalPower = "ignore";
 
@@ -107,6 +107,7 @@
 
   environment.systemPackages = with pkgs; [
     btop
+    git
   ];
 
   # Enable the OpenSSH daemon.

@@ -46,7 +46,7 @@
           sources = [
             (pkgs.lib.gvariant.mkTuple [
               "xkb"
-              "latam"
+              "us"
             ])
           ];
         };

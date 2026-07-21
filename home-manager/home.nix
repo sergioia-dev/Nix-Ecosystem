@@ -64,7 +64,7 @@
     };
 
     multiplexer = {
-      herdr.enable = true;
+      herdr.enable = false;
       tmux.enable = true;
     };
 

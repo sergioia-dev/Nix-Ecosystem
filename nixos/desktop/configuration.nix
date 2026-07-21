@@ -92,12 +92,10 @@
   };
 
   # Configure console keymap
-  console.keyMap = "la-latin1";
+  console.keyMap = "us";
 
   # Enable sound with pipewire.
   security.rtkit.enable = true;
-
-  # programs.adb.enable = true;
 
   users.users.k1 = {
     subUidRanges = [
