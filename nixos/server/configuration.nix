@@ -2,8 +2,7 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ../hardware-configuration.nix
   ];
 
   nix.settings.experimental-features = [
@@ -59,12 +58,12 @@
     ];
   };
 
-  programs.tmux = {
+  services.tlp = {
     enable = true;
-    plugins = with pkgs.tmuxPlugins; [
-      resurrect
-      sensible
-    ];
+    settings = {
+      START_CHARGE_THRESH_BAT0 = 50;
+      STOP_CHARGE_THRESH_BAT0 = 60;
+    };
   };
 
   services.logind.lidSwitchExternalPower = "ignore";
@@ -98,17 +97,29 @@
     package = pkgs.ollama-cpu;
     loadModels = [
       "ministral-3:8b"
-      "ministral-3:14b"
+      "llama3.1:8b"
+      "llama3.2:3b"
     ];
   };
 
-  # Allow unfree packages
+  #dadadj Adada a dadadwdwllow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     btop
     git
+    tmux
+    podman-compose
   ];
+
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
+    };
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

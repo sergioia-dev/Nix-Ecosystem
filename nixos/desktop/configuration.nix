@@ -4,6 +4,7 @@
     ./system/systemBundle.nix
     ./database/databaseBundle.nix
     ./tool/toolBundle.nix
+    ../hardware-configuration.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -97,7 +98,7 @@
   # Enable sound with pipewire.
   security.rtkit.enable = true;
 
-  users.users.k1 = {
+  users.users.sia = {
     subUidRanges = [
       {
         startUid = 100000;
@@ -111,13 +112,12 @@
       }
     ];
     isNormalUser = true;
-    description = "K1";
+    description = "SIA";
     extraGroups = [
       "networkmanager"
       "wheel"
       "video"
       "kvm"
-      # "adbusers"
     ];
   };
 
