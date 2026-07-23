@@ -48,6 +48,7 @@
 
     AI = {
       opencode.enable = true;
+      pi.enable = true;
     };
 
     tool = {

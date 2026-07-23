@@ -22,5 +22,6 @@
     ./database/mongodb.nix
     ./database/sqlite.nix
     ./AI/opencode.nix
+    ./AI/pi.nix
   ];
 }

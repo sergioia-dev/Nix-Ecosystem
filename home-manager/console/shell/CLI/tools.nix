@@ -21,7 +21,6 @@
       zoxide
       wl-clipboard
       curl
-      autossh
       openssh
     ];
 
