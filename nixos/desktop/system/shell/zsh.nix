@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.system.shell.zsh.enable = lib.mkEnableOption "Enables zsh and its configuration";
 
   config = lib.mkIf config.system.shell.zsh.enable {
@@ -11,7 +12,7 @@
       enable = true;
     };
 
-    users.extraUsers.k1 = {
+    users.extraUsers.sia = {
       shell = pkgs.zsh;
     };
   };

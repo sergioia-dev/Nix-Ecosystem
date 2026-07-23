@@ -48,7 +48,7 @@
         };
       };
 
-      homeConfigurations.k1 = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.sia = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."${system}";
         modules = [
           ./home-manager/home.nix
