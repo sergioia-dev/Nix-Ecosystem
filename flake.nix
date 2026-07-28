@@ -18,8 +18,8 @@
     };
 
     overleaf = {
-
       url = "gitlab:sergioia-dev/overleaf-nix";
+      # url = "git+file:///home/sia/Nix-Overleaf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

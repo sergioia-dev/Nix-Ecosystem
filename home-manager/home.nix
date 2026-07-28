@@ -15,7 +15,7 @@
   ];
 
   services.overleaf = {
-    enable = true;
+    enable = false;
     port = 8080;
     texlivePackages = with pkgs.texlive; [ combined.scheme-full ];
   };
