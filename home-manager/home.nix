@@ -1,6 +1,8 @@
 {
   config,
   lib,
+  inputs,
+  pkgs,
   ...
 }:
 {
@@ -9,7 +11,14 @@
     ./console/consoleBundle.nix
     ./development/developmentBundle.nix
     ./system/systemBundle.nix
+    inputs.overleaf.homeManagerModules.default
   ];
+
+  services.overleaf = {
+    enable = true;
+    port = 8080;
+    texlivePackages = with pkgs.texlive; [ combined.scheme-full ];
+  };
 
   development = {
     language = {
@@ -48,7 +57,7 @@
 
     AI = {
       opencode.enable = true;
-      pi.enable = true;
+      pi.enable = false;
     };
 
     tool = {
@@ -84,9 +93,9 @@
     };
 
     infomatic = {
-      gradia.enable = true;
+      gradia.enable = false;
       planify.enable = true;
-      only-office.enable = true;
+      only-office.enable = false;
       libreoffice.enable = false;
       foliate.enable = false; # doesn't work well
       affine.enable = false;
@@ -95,7 +104,7 @@
         enable = true;
         autostart = true;
       };
-      wordbook.enable = true;
+      wordbook.enable = false;
       teams.enable = false;
       mendeley.enable = true;
       video-editing.enable = false;
@@ -104,13 +113,13 @@
     music = {
       spotify.enable = false;
       spotube.enable = false;
-      gapless.enable = true;
+      gapless.enable = false;
     };
 
     messaging = {
-      telegram.enable = true;
-      discord.enable = true;
-      element.enable = true;
+      telegram.enable = false;
+      discord.enable = false;
+      element.enable = false;
       signal.enable = false;
       karere = {
         enable = true;

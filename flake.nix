@@ -17,6 +17,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    overleaf = {
+
+      url = "gitlab:sergioia-dev/overleaf-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
   outputs =
     {
@@ -35,6 +41,7 @@
       nixosConfigurations = {
         desktop = lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; };
           modules = [
             ./nixos/desktop/configuration.nix
           ];
@@ -42,6 +49,7 @@
 
         server = lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; };
           modules = [
             ./nixos/server/configuration.nix
           ];

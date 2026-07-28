@@ -4,15 +4,29 @@ name = "catppuccin-latte"
 auto_switch = true
 light_name = "catppuccin-latte"
 dark_name = "catppuccin"
+
 [ui]
-show_agent_labels_on_pane_borders = true
+show_agent_labels_on_pane_borders = false
+pane_borders = "plain" 
+pane_gaps = 0 
+
 [keys]
-navigate_workspace_up = "k"
-navigate_workspace_down = "j"
-navigate_pane_left = ""
-navigate_pane_down = ""
-navigate_pane_up = ""
-navigate_pane_right = ""
-rename_tab = "prefix+t"
-rename_workspace = "prefix+shift+t"
-new_workspace = "prefix+shift+c"
+prefix = "ctrl+b"
+
+# Pane splitting
+split_vertical   = "prefix+%"    # Vertical split (left/right)
+split_horizontal = 'prefix+"'
+
+# Pane navigation (Vim-style)
+focus_pane_left = ["prefix+h", "prefix+left"]
+focus_pane_down = ["prefix+j", "prefix+down"]
+focus_pane_up = ["prefix+k", "prefix+up"]
+focus_pane_right = ["prefix+l", "prefix+right"]
+
+# Tab navigation
+previous_tab = "shift+left"
+next_tab = "shift+right"
+
+# Other useful bindings
+resize_mode = "prefix+R"      # Enter resize mode
+reload_config = "prefix+r"    # Reload config without restarting

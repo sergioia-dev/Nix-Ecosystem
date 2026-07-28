@@ -8,5 +8,7 @@
     ./tomcat.nix
     ./steam.nix
     ./waydroid.nix
+    ./openssh.nix
+    ./overleaf.nix
   ];
 }

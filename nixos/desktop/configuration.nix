@@ -1,10 +1,11 @@
-{ ... }:
+{ inputs, ... }:
 {
   imports = [
     ./system/systemBundle.nix
     ./database/databaseBundle.nix
     ./tool/toolBundle.nix
     ../hardware-configuration.nix
+    inputs.overleaf.nixosModules.default
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -51,8 +52,10 @@
     docker.enable = false;
     nginx.enable = false;
     virtManager.enable = false;
-    steam.enable = true;
+    steam.enable = false;
     waydroid.enable = false;
+    openssh.enable = true;
+    overleaf.enable = false;
   };
 
   boot.loader = {
