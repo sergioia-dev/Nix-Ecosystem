@@ -39,11 +39,11 @@
     in
     {
       nixosConfigurations = {
-        desktop = lib.nixosSystem {
+        desktop-work = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./nixos/desktop/configuration.nix
+            ./nixos/host/work-laptop/configuration.nix
           ];
         };
 
