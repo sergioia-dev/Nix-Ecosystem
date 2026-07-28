@@ -4,7 +4,7 @@
     ./system/systemBundle.nix
     ./database/databaseBundle.nix
     ./tool/toolBundle.nix
-    ../hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
     inputs.overleaf.nixosModules.default
   ];
 
