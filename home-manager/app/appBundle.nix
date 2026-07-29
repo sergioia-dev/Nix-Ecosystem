@@ -6,7 +6,7 @@
     ./infomatic/mendeley.nix
     ./infomatic/only-office.nix
     ./infomatic/libreoffice.nix
-    ./infomatic/video-editing.nix
+    ./infomatic/obs-studio.nix
     ./infomatic/gradia.nix
     ./infomatic/planify.nix
     ./infomatic/teams.nix
@@ -27,5 +27,6 @@
     ./others/secrets.nix
     ./others/tangram.nix
     ./others/ferdium.nix
+    ./others/overleaf.nix
   ];
 }

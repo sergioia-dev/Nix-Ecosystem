@@ -1,0 +1,1 @@
+../../common/hardware/work-laptop.nix

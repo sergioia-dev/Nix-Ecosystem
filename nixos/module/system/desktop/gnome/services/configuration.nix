@@ -1,11 +1,19 @@
 {
+  pkgs,
   config,
   lib,
   ...
-}: {
-  options.system.desktop.gnome.services.configuration.enable = lib.mkEnableOption "Enable Gnome Extensions";
+}:
+{
+  options.system.desktop.gnome.services.configuration.enable =
+    lib.mkEnableOption "Enable Gnome Extensions";
 
   config = lib.mkIf config.system.desktop.gnome.services.configuration.enable {
+
+    environment.systemPackages = with pkgs; [
+      wl-clipboard
+    ];
+
     security.pam = {
       services = {
         polkit-1.fprintAuth = true;

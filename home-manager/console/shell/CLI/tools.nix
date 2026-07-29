@@ -19,9 +19,7 @@
       fzf
       bat
       zoxide
-      wl-clipboard
       curl
-      openssh
     ];
 
     home.shellAliases = {
@@ -39,7 +37,7 @@
     programs.btop = {
       enable = true;
       settings = {
-        color_theme = "TTY";
+        color_theme = "monokai";
         theme_background = false;
         vim_keys = true;
         rounded_corners = true;

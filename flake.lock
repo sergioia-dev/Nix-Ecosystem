@@ -41,11 +41,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1785104993,
-        "narHash": "sha256-eKbrvPoAOFutbYMdbB3r5EQVmFxKv24iKqHPPUXA0gM=",
+        "lastModified": 1785133411,
+        "narHash": "sha256-Yjv0WEg39KRYS0rBdTbu6Fc/or/ihAKk13W9sQ6VWd0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8623c4c20aa4ca2f5fb81510d2944066c3fb0d96",
+        "rev": "2f5a153c270b70cb0f8c11f46d96d6d3bc39f4e3",
         "type": "github"
       },
       "original": {
@@ -79,11 +79,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785264129,
-        "narHash": "sha256-mkAWodlfKSyWNvZQCvbWS82UNula54dsI8g8t2q8byg=",
+        "lastModified": 1785276480,
+        "narHash": "sha256-sc5Ag6oFhPxk6twRt6JuvkJp2LJD7aRY0AsmhbiIxyM=",
         "owner": "sergioia-dev",
         "repo": "overleaf-nix",
-        "rev": "9a5acbc50e75672e54873da1230d3673887cf4bd",
+        "rev": "00aed6ccba9a5384ae0d014d571697d356afd3c2",
         "type": "gitlab"
       },
       "original": {

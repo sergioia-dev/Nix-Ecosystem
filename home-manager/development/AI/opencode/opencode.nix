@@ -13,7 +13,7 @@
     ];
 
     home.file = {
-      ".config/opencode/tui.json".source = ../settings/configurations/opencode/tui.json;
+      ".config/opencode/tui.json".source = ./tui.json;
     };
   };
 }

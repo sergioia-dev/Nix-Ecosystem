@@ -14,33 +14,7 @@
     inputs.overleaf.homeManagerModules.default
   ];
 
-  services.overleaf = {
-    enable = false;
-    port = 8080;
-    texlivePackages = with pkgs.texlive; [ combined.scheme-full ];
-  };
-
   development = {
-    language = {
-      nix.enable = false;
-      rust.enable = false;
-      typescript.enable = false;
-      dart.enable = false;
-      java.enable = false;
-      python.enable = false;
-      cpp.enable = false;
-      csharp.enable = false;
-      lua.enable = false;
-    };
-
-    database = {
-      sqlite.enable = false;
-      mysql.enable = false;
-      postgresql.enable = false;
-      mongodb.enable = false;
-      redis.enable = false;
-    };
-
     IDE = {
       jetbrains = {
         ideavim.enable = lib.mkIf (
@@ -56,13 +30,10 @@
     };
 
     AI = {
-      opencode.enable = true;
-      pi.enable = false;
+      opencode.enable = false;
     };
 
     tool = {
-      obsidian.enable = false;
-      logseq.enable = false;
       penpot.enable = false;
     };
   };
@@ -107,7 +78,7 @@
       wordbook.enable = false;
       teams.enable = false;
       mendeley.enable = true;
-      video-editing.enable = false;
+      obs-studio.enable = false;
     };
 
     music = {
@@ -128,13 +99,14 @@
     };
 
     other = {
+      overleaf.enable = true;
+      secrets.enable = true;
+      ferdium.enable = false;
+      denaro.enable = false;
       tangram = {
         enable = false;
         autostart = false;
       };
-      secrets.enable = true;
-      ferdium.enable = false;
-      denaro.enable = false;
     };
 
   };
