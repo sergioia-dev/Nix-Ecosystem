@@ -1,4 +1,5 @@
 onboarding = false
+
 [theme]
 name = "catppuccin-latte"
 auto_switch = true
@@ -10,23 +11,140 @@ show_agent_labels_on_pane_borders = false
 pane_borders = "plain" 
 pane_gaps = 0 
 
+# ============================================================
+# Herdr Configuration - Full tmux Keybinding Emulation
+# ============================================================
+# File location: ~/.config/herdr/config.toml
+# After saving, reload with: prefix + Shift + r
+# ============================================================
+
 [keys]
+# Base prefix key (tmux default)
 prefix = "ctrl+b"
 
-# Pane splitting
-split_vertical   = "prefix+%"    # Vertical split (left/right)
-split_horizontal = 'prefix+"'
+# ============================================================
+# 1. Session Management
+# ============================================================
+detach            = "prefix+d"        # Detach from session (tmux: prefix+d)
+workspace_picker  = "prefix+w"        # List all sessions (tmux: prefix+s)
 
-# Pane navigation (Vim-style)
-focus_pane_left = ["prefix+h", "prefix+left"]
-focus_pane_down = ["prefix+j", "prefix+down"]
-focus_pane_up = ["prefix+k", "prefix+up"]
-focus_pane_right = ["prefix+l", "prefix+right"]
+# ============================================================
+# 2. Window (Tab) Management
+# ============================================================
+new_tab           = "prefix+c"        # Create new window (tmux: prefix+c)
+rename_workspace  = "prefix+comma"    # Rename current window (tmux: prefix+,)
+previous_tab      = "prefix+p"        # Move to previous window (tmux: prefix+p)
+next_tab          = "prefix+n"        # Move to next window (tmux: prefix+n)
+close_workspace   = "prefix+shift+7"  # Close current window (tmux: prefix+&)
 
-# Tab navigation
-previous_tab = "shift+left"
-next_tab = "shift+right"
+# Find window by name (tmux: prefix+f)
+[[keys.command]]
+key = "prefix+f"
+command = "herdr workspace-picker --filter"
 
-# Other useful bindings
-resize_mode = "prefix+R"      # Enter resize mode
-reload_config = "prefix+r"    # Reload config without restarting
+# Swap window positions (tmux: prefix+.)
+[[keys.command]]
+key = "prefix+period"
+command = "herdr move-workspace-interactive"
+
+# Jump to window by number (tmux: prefix+0-9)
+# [[keys.command]]
+# key = "prefix+0"
+# command = "herdr goto-tab 0"
+[[keys.command]]
+key = "prefix+1"
+command = "herdr goto-tab 1"
+[[keys.command]]
+key = "prefix+2"
+command = "herdr goto-tab 2"
+[[keys.command]]
+key = "prefix+3"
+command = "herdr goto-tab 3"
+[[keys.command]]
+key = "prefix+4"
+command = "herdr goto-tab 4"
+[[keys.command]]
+key = "prefix+5"
+command = "herdr goto-tab 5"
+[[keys.command]]
+key = "prefix+6"
+command = "herdr goto-tab 6"
+[[keys.command]]
+key = "prefix+7"
+command = "herdr goto-tab 7"
+[[keys.command]]
+key = "prefix+8"
+command = "herdr goto-tab 8"
+[[keys.command]]
+key = "prefix+9"
+command = "herdr goto-tab 9"
+
+# ============================================================
+# 3. Pane Management
+# ============================================================
+# ---- Pane Splitting (tmux: prefix+% and prefix+") ----
+[[keys.command]]
+key = "prefix+shift+5"                # %  - Split vertically (left/right)
+command = "herdr split-pane -h"       # -h creates horizontal layout in tmux style
+
+[[keys.command]]
+key = "prefix+shift+'"                # "  - Split horizontally (top/bottom)
+command = "herdr split-pane -v"       # -v creates vertical layout
+
+# ---- Pane Navigation ----
+# Vim-style navigation (tmux doesn't have these by default, but very useful)
+focus_pane_left   = ["prefix+h", "prefix+left"]
+focus_pane_down   = ["prefix+j", "prefix+down"]
+focus_pane_up     = ["prefix+k", "prefix+up"]
+focus_pane_right  = ["prefix+l", "prefix+right"]
+
+# Tmux default pane navigation (prefix+o and prefix+;)
+focus_next_pane     = "prefix+o"
+focus_previous_pane = "prefix+semicolon"
+
+# ---- Pane Operations ----
+close_pane       = "prefix+x"           # Kill current pane (tmux: prefix+x)
+
+# Show pane numbers (tmux: prefix+q)
+[[keys.command]]
+key = "prefix+q"
+command = "herdr show-pane-numbers"
+
+# Break pane out to a new window (tmux: prefix+!)
+[[keys.command]]
+key = "prefix+shift+1"                 # !
+command = "herdr break-pane"
+
+# ---- Resize Panes (tmux: prefix+Ctrl+Arrow) ----
+[[keys.command]]
+key = "prefix+ctrl+Left"
+command = "herdr resize-pane -L 5"     # Resize left by 5 units
+[[keys.command]]
+key = "prefix+ctrl+Right"
+command = "herdr resize-pane -R 5"     # Resize right by 5 units
+[[keys.command]]
+key = "prefix+ctrl+Up"
+command = "herdr resize-pane -U 5"     # Resize up by 5 units
+[[keys.command]]
+key = "prefix+ctrl+Down"
+command = "herdr resize-pane -D 5"     # Resize down by 5 units
+
+# ---- Swap Panes (tmux: prefix+{ and prefix+}) ----
+[[keys.command]]
+key = "prefix+shift+["                 # {
+command = "herdr swap-pane left"       # Swap with the previous pane
+[[keys.command]]
+key = "prefix+shift+]"                 # }
+command = "herdr swap-pane right"      # Swap with the next pane
+
+# ============================================================
+# 4. Copy Mode (tmux: prefix+[)
+# ============================================================
+copy_mode = "prefix+["                 # Enter copy/scroll mode
+
+# ============================================================
+# 5. Miscellaneous
+# ============================================================
+help              = "prefix+?"         # Show all keybindings (tmux: prefix+?)
+reload_config     = "prefix+shift+r"   # Reload the config file
+settings          = "prefix+s"         # Open Herdr settings

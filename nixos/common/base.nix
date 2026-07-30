@@ -6,6 +6,7 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+  nix.registry.nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
 
   nix.settings = {
     experimental-features = [

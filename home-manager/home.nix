@@ -45,13 +45,13 @@
     };
 
     multiplexer = {
-      herdr.enable = false;
+      herdr.enable = true;
       tmux.enable = true;
     };
 
     shell = {
-      bash.enable = false;
-      zsh.enable = true;
+      bash.enable = true;
+      zsh.enable = false;
       tools.enable = lib.mkDefault true;
     };
   };

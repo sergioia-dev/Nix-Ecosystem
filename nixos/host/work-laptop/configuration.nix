@@ -11,7 +11,7 @@
     kdePlasma.enable = false; # KDE Plasma Desktop Environment
   };
 
-  system.shell.zsh.enable = true; # Zsh shell and configuration
+  system.shell.zsh.enable = false; # Zsh shell and configuration
 
   system.profile.battery.setBatteryLimit.enable = false; # Battery charge limit script
 
