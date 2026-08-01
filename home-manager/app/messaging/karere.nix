@@ -16,22 +16,29 @@ in
   };
 
   # ----- Configuration -----
-  config = lib.mkIf cfg.enable {
-    # Install the package
-    home.packages = [ pkgs-unstable.karere ];
+  config = lib.mkMerge [
+    # Lock autostart to false when the app is disabled
+    (lib.mkIf (!cfg.enable) {
+      app.messaging.karere.autostart = lib.mkForce false;
+    })
+    # Apply config when the app is enabled
+    (lib.mkIf cfg.enable {
+      # Install the package
+      home.packages = [ pkgs-unstable.karere ];
 
-    # Write the autostart .desktop file only if autostart is enabled
-    xdg.configFile."autostart/karere.desktop" = lib.mkIf cfg.autostart {
-      text = ''
-        [Desktop Entry]
-        Type=Application
-        Name=Karere
-        Comment=WhatsApp Client
-        Exec=${pkgs-unstable.karere}/bin/karere
-        Icon=karere
-        Terminal=false
-        X-GNOME-Autostart-enabled=true
-      '';
-    };
-  };
+      # Write the autostart .desktop file only if autostart is enabled
+      xdg.configFile."autostart/karere.desktop" = lib.mkIf cfg.autostart {
+        text = ''
+          [Desktop Entry]
+          Type=Application
+          Name=Karere
+          Comment=WhatsApp Client
+          Exec=${pkgs-unstable.karere}/bin/karere
+          Icon=karere
+          Terminal=false
+          X-GNOME-Autostart-enabled=true
+        '';
+      };
+    })
+  ];
 }

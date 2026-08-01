@@ -41,7 +41,7 @@
       nixosConfigurations = {
         desktop-work = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
             ./nixos/host/work-laptop/configuration.nix
           ];
@@ -49,7 +49,7 @@
 
         server = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
             ./nixos/server/configuration.nix
           ];
@@ -61,6 +61,7 @@
         modules = [
           ./home-manager/home.nix
         ];
+
         extraSpecialArgs = { inherit inputs pkgs-unstable; };
       };
     };

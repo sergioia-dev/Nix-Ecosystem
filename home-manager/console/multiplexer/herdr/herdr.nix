@@ -14,7 +14,7 @@
     ];
 
     home.file = {
-      ".config/herdr/config.toml".source = ../../development/settings/configurations/herdr/config.toml;
+      ".config/herdr/config.toml".source = ./config.toml;
     };
   };
 }

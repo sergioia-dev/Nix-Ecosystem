@@ -13,8 +13,8 @@
     ./infomatic/affine.nix
     ./infomatic/wordbook.nix
     ./infomatic/foliate.nix
-    ./infomatic/geary.nix
     ./infomatic/logseq.nix
+    ./infomatic/thunderbird.nix
     ./music/spotify.nix
     ./music/spotube.nix
     ./music/gapless.nix

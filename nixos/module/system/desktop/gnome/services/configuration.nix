@@ -6,7 +6,7 @@
 }:
 {
   options.system.desktop.gnome.services.configuration.enable =
-    lib.mkEnableOption "Enable Gnome Extensions";
+    lib.mkEnableOption "Enable GNOME services (GDM, session, etc.)";
 
   config = lib.mkIf config.system.desktop.gnome.services.configuration.enable {
 

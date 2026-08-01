@@ -9,6 +9,7 @@
     gnome.enable = true; # GNOME Desktop Environment
     cosmic.enable = false; # COSMIC Desktop Environment (System76)
     kdePlasma.enable = false; # KDE Plasma Desktop Environment
+    niri.enable = false; # Niri Desktop Environment
   };
 
   system.shell.zsh.enable = false; # Zsh shell and configuration

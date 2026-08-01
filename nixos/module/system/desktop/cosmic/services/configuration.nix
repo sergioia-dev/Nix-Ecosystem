@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  options.system.desktop.cosmic.services.configuration.enable = lib.mkEnableOption "Enable Gnome Extensions";
+  options.system.desktop.cosmic.services.configuration.enable = lib.mkEnableOption "Enable Cosmic greeter & session";
 
   config = lib.mkIf config.system.desktop.cosmic.services.configuration.enable {
     services.displayManager.cosmic-greeter.enable = true;

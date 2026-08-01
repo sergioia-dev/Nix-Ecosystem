@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ../module/moduleBundle.nix
@@ -16,6 +16,8 @@
     download-buffer-size = 524288000;
     substituters = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
   };
+
+  fonts.packages = with pkgs; [ jetbrains-mono ];
 
   services.flatpak.enable = false;
 

@@ -2,7 +2,6 @@
   config,
   lib,
   inputs,
-  pkgs,
   ...
 }:
 {
@@ -17,13 +16,9 @@
   development = {
     IDE = {
       jetbrains = {
-        ideavim.enable = lib.mkIf (
-          config.development.IDE.jetbrains.intellij.enable
-          || config.development.IDE.jetbrains.android-studio.enable
-        ) true;
-
         intellij.enable = false;
         android-studio.enable = false;
+        ideavim.enable = false;
       };
       vscode.enable = false;
       helix.enable = false;
@@ -41,11 +36,11 @@
   console = {
     terminal = {
       kitty.enable = false;
-      foot.enable = false;
+      foot.enable = true;
     };
 
     multiplexer = {
-      herdr.enable = true;
+      herdr.enable = false;
       tmux.enable = true;
     };
 
@@ -71,14 +66,11 @@
       foliate.enable = false; # doesn't work well
       affine.enable = false;
       logseq.enable = true;
-      geary = {
-        enable = true;
-        autostart = true;
-      };
       wordbook.enable = false;
       teams.enable = false;
       mendeley.enable = true;
       obs-studio.enable = false;
+      thunderbird.enable = false;
     };
 
     music = {
@@ -112,7 +104,35 @@
   };
 
   system = {
-    desktop.gnome.enable = true;
+    desktop = {
+      gnome = {
+        enable = true;
+        custom = {
+          extensions.enable = true;
+          keymaps.enable = true;
+          theme.enable = true;
+        };
+        apps = {
+          geary = {
+            enable = true;
+            autostart = true;
+          };
+        };
+      };
+
+      cosmic = {
+        enable = false;
+        custom = {
+          keymaps.enable = true;
+        };
+      };
+
+      niri = {
+        enable = false;
+        waybar.enable = true;
+      };
+
+    };
   };
 
   home = {

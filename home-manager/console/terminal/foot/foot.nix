@@ -10,6 +10,7 @@
   config = lib.mkIf config.console.terminal.foot.enable {
     home.packages = with pkgs; [
       foot
+      nerd-fonts.jetbrains-mono
     ];
 
     home.file.".config/foot".source = ../foot;

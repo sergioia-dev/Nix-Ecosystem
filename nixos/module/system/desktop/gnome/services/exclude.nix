@@ -5,7 +5,7 @@
   ...
 }:
 {
-  options.system.desktop.gnome.services.exclude.enable = lib.mkEnableOption "Enable Gnome Extensions";
+  options.system.desktop.gnome.services.exclude.enable = lib.mkEnableOption "Exclude default GNOME packages";
 
   config = lib.mkIf config.system.desktop.gnome.services.exclude.enable {
     environment.gnome.excludePackages = with pkgs; [

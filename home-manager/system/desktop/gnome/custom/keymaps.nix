@@ -7,120 +7,125 @@
 {
   options.system.desktop.gnome.custom.keymaps.enable = lib.mkEnableOption "Enable Gnome Extensions";
 
-  config = lib.mkIf config.system.desktop.gnome.custom.keymaps.enable {
-    dconf = {
-      settings = {
-        "org/gnome/settings-daemon/plugins/media-keys" = {
-          custom-keybindings = [
-            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
-            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
-          ];
-        };
-        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-          name = "Open terminal";
-          command = "kgx";
-          binding = "<Control><Shift>t";
-        };
+  config =
+    lib.mkIf (config.system.desktop.gnome.enable && config.system.desktop.gnome.custom.keymaps.enable)
+      {
+        dconf = {
+          settings = {
+            "org/gnome/settings-daemon/plugins/media-keys" = {
+              custom-keybindings = [
+                "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+                "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+                "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+                "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+              ];
+            };
+            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+              name = "Open terminal";
+              command = "foot";
+              binding = "<Control><Shift>t";
+            };
 
-        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-          name = "Open the Web browser";
-          command = "firefox";
-          binding = "<Control><Shift>b";
-        };
+            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+              name = "Open the Web browser";
+              command = "firefox";
+              binding = "<Control><Shift>b";
+            };
 
-        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
-          name = "Disable Touchpad";
-          command = "gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled";
-          binding = "F10";
-        };
-        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
-          name = "Enable Touchpad";
-          command = "gsettings set org.gnome.desktop.peripherals.touchpad send-events enabled";
-          binding = "F11";
-        };
+            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+              name = "Disable Touchpad";
+              command = "gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled";
+              binding = "F10";
+            };
+            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
+              name = "Enable Touchpad";
+              command = "gsettings set org.gnome.desktop.peripherals.touchpad send-events enabled";
+              binding = "F11";
+            };
 
-        "org/gnome/desktop/input-sources" = {
-          xkb-options = [ "caps:escape" ];
-          sources = [
-            (pkgs.lib.gvariant.mkTuple [
-              "xkb"
-              "us"
-            ])
-          ];
-        };
+            "org/gnome/desktop/input-sources" = {
+              xkb-options = [ "caps:escape" ];
+              sources = [
+                (pkgs.lib.gvariant.mkTuple [
+                  "xkb"
+                  "us"
+                ])
+              ];
+            };
 
-        "org/gnome/shell/app-switcher" = {
-          current-workspace-only = false;
-        };
+            "org/gnome/shell/app-switcher" = {
+              current-workspace-only = false;
+            };
 
-        "org/gnome/desktop/peripherals/touchpad" = {
-          click-method = "areas";
-        };
+            "org/gnome/desktop/peripherals/touchpad" = {
+              click-method = "areas";
+            };
 
-        "org/gnome/mutter" = {
-          dynamic-workspaces = false;
-          workspaces-only-on-primary = false;
-        };
+            "org/gnome/mutter" = {
+              dynamic-workspaces = false;
+              workspaces-only-on-primary = false;
+              overlay-key = "";
+            };
 
-        "org/gnome/desktop/wm/preferences" = {
-          num-workspaces = 5;
-        };
+            "org/gnome/desktop/wm/preferences" = {
+              num-workspaces = 5;
+            };
 
-        "org/gnome/mutter/keybindings" = {
-          toggle-tiled-left = [ "" ];
-          toggle-tiled-right = [ "" ];
-        };
+            "org/gnome/mutter/keybindings" = {
+              toggle-tiled-left = [ "" ];
+              toggle-tiled-right = [ "" ];
+            };
 
-        "org/gnome/settings-daemon/plugins/media-keys" = {
-          screensaver = [ "F7" ];
-        };
+            "org/gnome/settings-daemon/plugins/media-keys" = {
+              screensaver = [ "F7" ];
+            };
 
-        "org/gnome/shell/keybindings" = {
-          toggle-quick-settings = [ "<Super>q" ];
-          toggle-message-tray = [ "<Super>n" ];
-          focus-active-notification = [ "" ];
-        };
+            "org/gnome/shell/keybindings" = {
+              toggle-quick-settings = [ "<Super>q" ];
+              toggle-message-tray = [ "<Super>n" ];
+              toggle-application-view = [ "<Super>a" ];
+              toggle-overview = [ "<Super>w" ];
+              focus-active-notification = [ "" ];
+            };
 
-        "org/gnome/desktop/wm/keybindings" = {
-          close = [ "<Super>x" ];
-        };
+            "org/gnome/desktop/wm/keybindings" = {
+              close = [ "<Super>x" ];
+            };
 
-        "org/gnome/shell/extensions/paperwm/keybindings" = {
-          cycle-height = [ "" ];
-          new-window = [ "" ];
-          switch-left = [ "" ];
-          switch-right = [ "" ];
-          switch-down = [ "" ];
-          switch-up = [ "" ];
-          swap-monitor-below = [ "" ];
-          swap-monitor-above = [ "" ];
-          switch-global-left = [ "<Super>h" ];
-          switch-global-right = [ "<Super>l" ];
-          switch-global-down = [ "<Super>j" ];
-          switch-global-up = [ "<Super>k" ];
-          move-left = [ "<Control><Super>h" ];
-          move-right = [ "<Control><Super>l" ];
-          move-up = [ "<Control><Super>k" ];
-          move-down = [ "<Control><Super>j" ];
-          move-monitor-right = [ "<Alt><Super>l" ];
-          move-monitor-left = [ "<Alt><Super>h" ];
-          move-down-workspace = [ "<Alt><Super>j" ];
-          move-up-workspace = [ "<Alt><Super>k" ];
-          switch-monitor-above = [ "<Shift><Super>k" ];
-          switch-monitor-below = [ "<Shift><Super>j" ];
-          switch-monitor-right = [ "<Shift><Super>l" ];
-          switch-monitor-left = [ "<Shift><Super>h" ];
-          switch-up-workspace = [ "<Control><Alt>k" ];
-          switch-down-workspace = [ "<Control><Alt>j" ];
-          switch-open-window-position = [ "<Shift><Super>r" ];
-          move-space-monitor-right = [ "<Shift><Control><Alt>l" ];
-          move-space-monitor-left = [ "<Shift><Control><Alt>h" ];
-          move-space-monitor-above = [ "<Shift><Control><Alt>k" ];
-          move-space-monitor-below = [ "<Shift><Control><Alt>j" ];
+            "org/gnome/shell/extensions/paperwm/keybindings" = {
+              cycle-height = [ "" ];
+              new-window = [ "" ];
+              switch-left = [ "<Super>h" ];
+              switch-right = [ "<Super>l" ];
+              switch-down = [ "<Super>j" ];
+              switch-up = [ "<Super>k" ];
+              swap-monitor-below = [ "" ];
+              swap-monitor-above = [ "" ];
+              switch-global-left = [ "" ];
+              switch-global-right = [ "" ];
+              switch-global-down = [ "" ];
+              switch-global-up = [ "" ];
+              move-left = [ "<Control><Super>h" ];
+              move-right = [ "<Control><Super>l" ];
+              move-up = [ "<Control><Super>k" ];
+              move-down = [ "<Control><Super>j" ];
+              move-monitor-right = [ "<Alt><Super>l" ];
+              move-monitor-left = [ "<Alt><Super>h" ];
+              move-down-workspace = [ "<Alt><Super>j" ];
+              move-up-workspace = [ "<Alt><Super>k" ];
+              switch-monitor-above = [ "<Shift><Super>k" ];
+              switch-monitor-below = [ "<Shift><Super>j" ];
+              switch-monitor-right = [ "<Shift><Super>l" ];
+              switch-monitor-left = [ "<Shift><Super>h" ];
+              switch-up-workspace = [ "<Control><Alt>k" ];
+              switch-down-workspace = [ "<Control><Alt>j" ];
+              switch-open-window-position = [ "<Shift><Super>r" ];
+              move-space-monitor-right = [ "<Shift><Control><Alt>l" ];
+              move-space-monitor-left = [ "<Shift><Control><Alt>h" ];
+              move-space-monitor-above = [ "<Shift><Control><Alt>k" ];
+              move-space-monitor-below = [ "<Shift><Control><Alt>j" ];
+            };
+          };
         };
       };
-    };
-  };
 }
