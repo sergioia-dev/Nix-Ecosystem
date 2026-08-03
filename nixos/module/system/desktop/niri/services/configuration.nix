@@ -12,6 +12,7 @@
 
     environment.systemPackages = with pkgs; [
       wl-clipboard
+      nautilus
     ];
 
     programs.niri.enable = true;
