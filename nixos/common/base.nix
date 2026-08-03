@@ -33,6 +33,9 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    upower.enable = true;
+    power-profiles-daemon.enable = true;
   };
 
   networking.hostName = "nixos";

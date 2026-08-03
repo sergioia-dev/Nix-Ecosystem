@@ -56,6 +56,14 @@
           ];
         };
 
+        desktop-personal = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs pkgs-unstable; };
+          modules = [
+            ./nixos/host/personal-laptop/configuration.nix
+          ];
+        };
+
         server = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };

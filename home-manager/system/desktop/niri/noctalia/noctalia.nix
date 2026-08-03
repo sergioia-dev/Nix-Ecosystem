@@ -289,7 +289,7 @@
             wallpaper = {
               enabled = true;
               overviewEnabled = true;
-              directory = "/home/sia/Personal/Nix-Ecosystem/assets";
+              directory = "../../../../../assets/";
               monitorDirectories = [ ];
               enableMultiMonitorDirectories = false;
               showHiddenFiles = false;
