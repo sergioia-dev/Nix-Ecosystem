@@ -12,9 +12,12 @@
 
     environment.systemPackages = with pkgs; [
       wl-clipboard
+      nautilus
+      noctalia-shell
     ];
 
     programs.niri.enable = true;
+    services.gvfs.enable = true;
 
     services.greetd = {
       enable = true;
