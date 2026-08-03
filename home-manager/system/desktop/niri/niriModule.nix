@@ -1,26 +1,23 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}:
-{
-  options.system.desktop.niri.enable = lib.mkEnableOption "Enable Niri desktop customization";
-  options.system.desktop.niri.waybar.enable = lib.mkEnableOption "Enable Waybar for Niri";
+  imports = [
+    ./noctalia/noctalia.nix
+  ];
 
+  options.system.desktop.niri.enable = lib.mkEnableOption "Enable Niri desktop customization";
+
+  # Source the Niri shell config when the desktop is enabled. Unlike GNOME
+  # (which configures everything via dconf in child modules), Niri uses a
+  # `config.kdl` file, so it is sourced here at the parent level. When the
+  # parent Niri flag is off, force all sub-module options to false so they
+  # cannot be toggled independently. When the parent is on, sub-modules are
+  # freely toggleable (mirrors the GNOME/COSMIC modules).
   config = lib.mkMerge [
-    # Guard: waybar can only be enabled when the niri module is enabled.
-    (lib.mkIf (!config.system.desktop.niri.enable) {
-      system.desktop.niri.waybar.enable = lib.mkForce false;
-    })
-    # Niri config — applied only when the niri module is enabled.
     (lib.mkIf config.system.desktop.niri.enable {
       home.file.".config/niri/config.kdl".source = ./config.kdl;
     })
-    # Waybar config — applied only when waybar is enabled (which, via the
-    # guard above, implies niri.enable is true).
-    (lib.mkIf config.system.desktop.niri.waybar.enable {
-      home.file.".config/waybar/config".source = ./waybar/config;
-      home.file.".config/waybar/style.css".source = ./waybar/style.css;
+    (lib.mkIf (!config.system.desktop.niri.enable) {
+      system.desktop.niri.noctalia.enable = lib.mkForce false;
     })
   ];
 }

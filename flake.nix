@@ -6,6 +6,10 @@
       "https://aseipp-nix-cache.global.ssl.fastly.net"
       "https://cache.nixos.org" # Keep official as fallback
     ];
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
   };
 
   inputs = {
@@ -20,6 +24,11 @@
     overleaf = {
       url = "gitlab:sergioia-dev/overleaf-nix";
       # url = "git+file:///home/sia/Nix-Overleaf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

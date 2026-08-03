@@ -12,11 +12,6 @@
 
     environment.systemPackages = with pkgs; [
       wl-clipboard
-      swaylock
-      fuzzel
-      waybar
-      pavucontrol
-      swaybg
     ];
 
     programs.niri.enable = true;

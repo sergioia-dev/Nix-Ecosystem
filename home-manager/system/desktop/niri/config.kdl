@@ -38,6 +38,12 @@ input {
     }
 }
 
+gestures {
+  hot-corners { 
+    off
+  }
+}
+
 output "eDP-1" {
     mode "1920x1080@60.000"
     scale 1
@@ -186,8 +192,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "~/Personal/Nix-Ecosystem/assets/nix-dark.jpg"
+spawn-at-startup "noctalia-shell"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -267,9 +272,17 @@ window-rule {
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
+
     Ctrl+Shift+T hotkey-overlay-title="Open a Terminal: Foot" { spawn "foot"; }
-    Mod+A hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    F7 hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+
+    Mod+A hotkey-overlay-title="Run an Application" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+
+    Mod+Q hotkey-overlay-title="Toggles quicksettings" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+
+    F7 hotkey-overlay-title="Launches the LockScreen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
+
+    Mod+N hotkey-overlay-title="Launches the LockScreen" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
+
     Ctrl+Shift+B hotkey-overlay-title="Open Browser: Firefox " { spawn "firefox"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
@@ -281,8 +294,8 @@ binds {
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness increase"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia-shell ipc call brightness decrease"; }
 
     Mod+W repeat=false { toggle-overview; }
     Mod+X repeat=false { close-window; }

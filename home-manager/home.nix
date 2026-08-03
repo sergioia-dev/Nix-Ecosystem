@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   inputs,
   ...
@@ -11,6 +10,7 @@
     ./development/developmentBundle.nix
     ./system/systemBundle.nix
     inputs.overleaf.homeManagerModules.default
+    inputs.noctalia.homeModules.default
   ];
 
   development = {
@@ -70,7 +70,7 @@
       teams.enable = false;
       mendeley.enable = true;
       obs-studio.enable = false;
-      thunderbird.enable = false;
+      thunderbird.enable = true;
     };
 
     music = {
@@ -106,7 +106,7 @@
   system = {
     desktop = {
       gnome = {
-        enable = true;
+        enable = false;
         custom = {
           extensions.enable = true;
           keymaps.enable = true;
@@ -128,8 +128,8 @@
       };
 
       niri = {
-        enable = false;
-        waybar.enable = true;
+        enable = true;
+        noctalia.enable = true;
       };
 
     };
