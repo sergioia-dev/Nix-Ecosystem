@@ -1,7 +1,7 @@
 {
+  pkgs,
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -12,6 +12,50 @@
   config =
     lib.mkIf (config.system.desktop.niri.enable && config.system.desktop.niri.noctalia.enable)
       {
+
+        home.packages = with pkgs; [
+          pavucontrol
+        ];
+
+        xdg.configFile."noctalia/plugins/battery-threshold".source = pkgs.stdenv.mkDerivation {
+          name = "noctalia-battery-threshold";
+
+          src = pkgs.fetchFromGitHub {
+            owner = "noctalia-dev";
+            repo = "noctalia-plugins"; # v4 (Quickshell/QML) plugin repo, matching the legacy-v4 shell
+            rev = "main"; # Replace with a specific commit hash for reproducibility
+            hash = "sha256-M+7SLW+wI3KvDMj8dSrW/uUmpPiYhsXA2jpbbgL5imk=";
+          };
+
+          # Extract the battery-threshold folder contents so the plugin lands at
+          # ~/.config/noctalia/plugins/battery-threshold/ (v4 scans subdirs for manifest.json)
+          installPhase = ''
+            mkdir -p $out
+            cp -r battery-threshold/* $out/
+          '';
+        };
+
+        # The v4 shell only loads plugins whose state in plugins.json has enabled: true.
+        # State key is the plain plugin id ("battery-threshold") because it comes from the
+        # main/official source; include sourceUrl so no startup migration (and thus no write
+        # to this read-only file) is triggered.
+        xdg.configFile."noctalia/plugins.json" = {
+          force = true; # replace the shell-managed file with our declarative state
+          text = builtins.toJSON {
+            sources = [
+              {
+                enabled = true;
+                name = "Noctalia Plugins";
+                url = "https://github.com/noctalia-dev/noctalia-plugins";
+              }
+            ];
+            states."battery-threshold" = {
+              enabled = true;
+              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+            };
+            version = 2;
+          };
+        };
 
         programs.noctalia-shell = {
           enable = true;
@@ -129,28 +173,29 @@
                   {
                     id = "Battery";
                     deviceNativePath = "__default__";
-                    displayMode = "graphic-clean";
+                    displayMode = "icon-always";
                     hideIfIdle = false;
                     hideIfNotDetected = true;
-                    showNoctaliaPerformance = false;
-                    showPowerProfiles = false;
+                    showNoctaliaPerformance = true;
+                    showPowerProfiles = true;
                   }
+                  { id = "plugin:battery-threshold"; }
                   {
                     id = "Volume";
                     displayMode = "onhover";
                     iconColor = "none";
-                    middleClickCommand = "pwvucontrol || pavucontrol";
+                    middleClickCommand = lib.getExe pkgs.pavucontrol;
                     textColor = "none";
                   }
                   {
                     id = "ControlCenter";
                     colorizeDistroLogo = false;
-                    colorizeSystemIcon = "none";
+                    colorizeSystemIcon = "primary";
                     colorizeSystemText = "none";
                     customIconPath = "";
-                    enableColorization = false;
+                    enableColorization = true;
                     icon = "noctalia";
-                    useDistroLogo = false;
+                    useDistroLogo = true;
                   }
                 ];
               };
@@ -253,7 +298,7 @@
 
             # ===== settings.location =====
             location = {
-              name = "";
+              name = "Armenia";
               weatherEnabled = true;
               weatherShowEffects = true;
               weatherTaliaMascotAlways = false;
@@ -291,7 +336,7 @@
             wallpaper = {
               enabled = true;
               overviewEnabled = true;
-              directory = "../../../../../assets/";
+              directory = "${config.home.homeDirectory}/Nix-Ecosystem/assets/";
               monitorDirectories = [ ];
               enableMultiMonitorDirectories = false;
               showHiddenFiles = false;
@@ -507,42 +552,42 @@
                   command = "";
                   countdownEnabled = true;
                   enabled = false;
-                  keybind = "2";
+                  keybind = "";
                 }
                 {
                   action = "hibernate";
                   command = "";
                   countdownEnabled = true;
                   enabled = false;
-                  keybind = "3";
+                  keybind = "";
                 }
                 {
                   action = "reboot";
                   command = "";
                   countdownEnabled = true;
                   enabled = true;
-                  keybind = "4";
+                  keybind = "2";
                 }
                 {
                   action = "logout";
                   command = "";
                   countdownEnabled = true;
                   enabled = true;
-                  keybind = "5";
+                  keybind = "3";
                 }
                 {
                   action = "shutdown";
                   command = "";
                   countdownEnabled = true;
                   enabled = true;
-                  keybind = "6";
+                  keybind = "4";
                 }
                 {
                   action = "rebootToUefi";
                   command = "";
                   countdownEnabled = true;
                   enabled = false;
-                  keybind = "7";
+                  keybind = "";
                 }
                 {
                   action = "userspaceReboot";
