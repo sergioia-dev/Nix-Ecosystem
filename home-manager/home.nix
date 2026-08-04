@@ -11,6 +11,7 @@
     ./system/systemBundle.nix
     inputs.overleaf.homeManagerModules.default
     inputs.noctalia.homeModules.default
+    inputs.niri.homeModules.niri
   ];
 
   development = {
@@ -61,7 +62,7 @@
     infomatic = {
       gradia.enable = false;
       planify.enable = true;
-      only-office.enable = false;
+      only-office.enable = true;
       libreoffice.enable = false;
       foliate.enable = false; # doesn't work well
       affine.enable = false;
@@ -130,6 +131,13 @@
       niri = {
         enable = true;
         noctalia.enable = true;
+        custom = {
+          outputs.enable = true;
+          binds.enable = true;
+          input.enable = true;
+          layout.enable = true;
+          spawn.enable = true;
+        };
       };
 
     };
@@ -142,5 +150,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
   programs.home-manager.enable = true;
 }

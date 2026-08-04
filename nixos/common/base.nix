@@ -38,6 +38,8 @@
     power-profiles-daemon.enable = true;
   };
 
+  hardware.bluetooth.enable = true;
+
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 

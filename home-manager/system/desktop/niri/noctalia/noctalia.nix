@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -11,6 +12,7 @@
   config =
     lib.mkIf (config.system.desktop.niri.enable && config.system.desktop.niri.noctalia.enable)
       {
+
         programs.noctalia-shell = {
           enable = true;
 
@@ -279,7 +281,7 @@
                   id = "calendar-month-card";
                 }
                 {
-                  enabled = true;
+                  enabled = false;
                   id = "weather-card";
                 }
               ];
@@ -504,14 +506,14 @@
                   action = "suspend";
                   command = "";
                   countdownEnabled = true;
-                  enabled = true;
+                  enabled = false;
                   keybind = "2";
                 }
                 {
                   action = "hibernate";
                   command = "";
                   countdownEnabled = true;
-                  enabled = true;
+                  enabled = false;
                   keybind = "3";
                 }
                 {
@@ -539,7 +541,7 @@
                   action = "rebootToUefi";
                   command = "";
                   countdownEnabled = true;
-                  enabled = true;
+                  enabled = false;
                   keybind = "7";
                 }
                 {
