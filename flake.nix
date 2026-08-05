@@ -68,14 +68,6 @@
             ./nixos/host/personal-laptop/configuration.nix
           ];
         };
-
-        server = lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs pkgs-unstable; };
-          modules = [
-            ./nixos/server/configuration.nix
-          ];
-        };
       };
 
       homeConfigurations.sia = home-manager.lib.homeManagerConfiguration {

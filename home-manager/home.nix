@@ -137,6 +137,7 @@
           input.enable = true;
           layout.enable = true;
           spawn.enable = true;
+          others.enable = true;
         };
       };
 

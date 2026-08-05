@@ -5,15 +5,21 @@
     ../../common/hardware/personal-laptop.nix
   ];
 
-  system.desktop = {
-    gnome.enable = false; # GNOME Desktop Environment
-    cosmic.enable = false; # COSMIC Desktop Environment (System76)
-    kdePlasma.enable = false; # KDE Plasma Desktop Environment
-    niri.enable = true; # Niri Desktop Environment
+  system = {
+    desktop = {
+      gnome.enable = false; # GNOME Desktop Environment
+      cosmic.enable = false; # COSMIC Desktop Environment (System76)
+      kdePlasma.enable = false; # KDE Plasma Desktop Environment
+      niri.enable = true; # Niri Desktop Environment
+    };
+
+    specialization = {
+      server.enable = false;
+    };
+    shell = {
+      zsh.enable = false; # Zsh shell and configuration
+    };
   };
-
-  system.shell.zsh.enable = false; # Zsh shell and configuration
-
   system.profile.battery.setBatteryLimit.enable = false; # Battery charge limit script
 
   database = {

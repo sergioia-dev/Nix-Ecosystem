@@ -13,16 +13,7 @@
           };
 
           switch-events = {
-            lid-close = {
-              spawn = [
-                "noctalia-shell"
-                "ipc"
-                "call"
-                "lockScreen"
-                "lock"
-              ];
-            };
-
+            lid-close.action.spawn = "noctalia-shell ipc call lockScreen lock";
           };
         };
       };
