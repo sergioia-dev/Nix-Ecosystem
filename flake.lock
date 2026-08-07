@@ -198,11 +198,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786141471,
-        "narHash": "sha256-VI47NUBGOZvo2svAqCscNJiKWkCmX+B1+kHRN72274Q=",
+        "lastModified": 1786143027,
+        "narHash": "sha256-sJNlK0m9Z7Oj+/6FVj7j8u8mzy4S9pYDt5wXpV0DNCQ=",
         "owner": "sergioia-dev",
         "repo": "overleaf-nix",
-        "rev": "1be2360c55da3c8592335cfadc7ba408c02e9930",
+        "rev": "520b44b6ae79a464b986dee97b69b56bdcd133c5",
         "type": "gitlab"
       },
       "original": {
