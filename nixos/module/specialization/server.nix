@@ -14,7 +14,7 @@
 
         # Minimal networking
         networking.hostName = config.networking.hostName;
-        networking.networkmanager.enable = lib.mkForce false;
+        networking.networkmanager.enable = lib.mkForce true;
         networking.firewall = lib.mkForce {
           enable = true;
           allowedTCPPorts = [ 22 ];
@@ -29,6 +29,7 @@
         services.overleaf = {
           enable = lib.mkForce true;
           port = 8080;
+          openfirewall = lib.mkForce true;
         };
 
         # Disable all desktop environments
