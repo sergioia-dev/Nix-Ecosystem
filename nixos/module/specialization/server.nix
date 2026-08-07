@@ -17,7 +17,10 @@
         networking.networkmanager.enable = lib.mkForce true;
         networking.firewall = lib.mkForce {
           enable = true;
-          allowedTCPPorts = [ 22 ];
+          allowedTCPPorts = [
+            22
+            8080
+          ];
         };
 
         # SSH
@@ -29,7 +32,7 @@
         services.overleaf = {
           enable = lib.mkForce true;
           port = 8080;
-          openfirewall = lib.mkForce true;
+          # openfirewall = lib.mkForce true;
         };
 
         # Disable all desktop environments
