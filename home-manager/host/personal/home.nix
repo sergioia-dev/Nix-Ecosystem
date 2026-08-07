@@ -93,7 +93,7 @@
     };
 
     other = {
-      overleaf.enable = true;
+      overleaf.enable = false;
       secrets.enable = true;
       ferdium.enable = false;
       denaro.enable = false;
