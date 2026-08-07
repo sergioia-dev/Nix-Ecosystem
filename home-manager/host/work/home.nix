@@ -5,10 +5,10 @@
 }:
 {
   imports = [
-    ./app/appBundle.nix
-    ./console/consoleBundle.nix
-    ./development/developmentBundle.nix
-    ./system/systemBundle.nix
+    ../../app/appBundle.nix
+    ../../console/consoleBundle.nix
+    ../../development/developmentBundle.nix
+    ../../system/systemBundle.nix
     inputs.overleaf.homeManagerModules.default
     inputs.noctalia.homeModules.default
     inputs.niri.homeModules.niri
@@ -31,6 +31,7 @@
 
     tool = {
       penpot.enable = false;
+      postman.enable = true;
     };
   };
 
@@ -66,12 +67,12 @@
       libreoffice.enable = false;
       foliate.enable = false; # doesn't work well
       affine.enable = false;
-      logseq.enable = true;
+      logseq.enable = false;
       wordbook.enable = false;
       teams.enable = false;
-      mendeley.enable = true;
+      mendeley.enable = false;
       obs-studio.enable = false;
-      thunderbird.enable = true;
+      thunderbird.enable = false;
     };
 
     music = {

@@ -70,13 +70,22 @@
         };
       };
 
-      homeConfigurations.sia = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."${system}";
-        modules = [
-          ./home-manager/home.nix
-        ];
+      homeConfigurations = {
+        personal = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."${system}";
+          modules = [
+            ./home-manager/host/personal/home.nix
+          ];
+          extraSpecialArgs = { inherit inputs pkgs-unstable; };
+        };
 
-        extraSpecialArgs = { inherit inputs pkgs-unstable; };
+        work = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."${system}";
+          modules = [
+            ./home-manager/host/work/home.nix
+          ];
+          extraSpecialArgs = { inherit inputs pkgs-unstable; };
+        };
       };
     };
 }
