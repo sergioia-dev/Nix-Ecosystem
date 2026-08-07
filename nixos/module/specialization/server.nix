@@ -19,7 +19,6 @@
           enable = true;
           allowedTCPPorts = [
             22
-            8080
           ];
         };
 
@@ -29,11 +28,7 @@
         services.getty.autologinOnce = true;
 
         # Overleaf
-        services.overleaf = {
-          enable = lib.mkForce true;
-          port = 8080;
-          # openfirewall = lib.mkForce true;
-        };
+        tool.overleaf.enable = lib.mkForce true;
 
         # Disable all desktop environments
         system.desktop.gnome.enable = lib.mkForce false;
