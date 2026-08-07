@@ -22,6 +22,8 @@
 
         # SSH
         services.openssh.enable = lib.mkForce true;
+        services.getty.autologinUser = "sia";
+        services.getty.autologinOnce = true;
 
         # Overleaf
         services.overleaf = {
