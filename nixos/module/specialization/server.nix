@@ -15,15 +15,26 @@
         # Minimal networking
         networking.hostName = config.networking.hostName;
         networking.networkmanager.enable = lib.mkForce true;
-        networking.firewall = lib.mkForce {
+
+        services.openssh = {
+          enable = true;
+          ports = [ 2222 ];
+          settings = {
+            PasswordAuthentication = false;
+            KbdInteractiveAuthentication = false;
+            PermitRootLogin = "no";
+            AllowUsers = [ "sia" ];
+          };
+        };
+
+        # Open ports in the firewall.
+        networking.firewall = {
           enable = true;
           allowedTCPPorts = [
-            22
+            2222
           ];
         };
 
-        # SSH
-        services.openssh.enable = lib.mkForce true;
         services.getty.autologinUser = "sia";
         services.getty.autologinOnce = true;
 
