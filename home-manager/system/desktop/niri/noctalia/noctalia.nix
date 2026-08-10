@@ -17,25 +17,13 @@
           pavucontrol
         ];
 
-        xdg.configFile."noctalia/plugins/battery-threshold".source = pkgs.stdenv.mkDerivation {
-          name = "noctalia-battery-threshold";
-
-          src = pkgs.fetchFromGitHub {
-            owner = "noctalia-dev";
-            repo = "noctalia-plugins"; # v4 (Quickshell/QML) plugin repo, matching the legacy-v4 shell
-            rev = "main"; # Replace with a specific commit hash for reproducibility
-            hash = "sha256-M+7SLW+wI3KvDMj8dSrW/uUmpPiYhsXA2jpbbgL5imk=";
-          };
-
-          # Extract the battery-threshold folder contents so the plugin lands at
-          # ~/.config/noctalia/plugins/battery-threshold/ (v4 scans subdirs for manifest.json)
-          installPhase = ''
-            mkdir -p $out
-            cp -r battery-threshold/* $out/
-          '';
-        };
-
-        # The v4 shell only loads plugins whose state in plugins.json has enabled: true.
+        # The battery-threshold plugin is intentionally NOT installed/configured
+        # here: charge-threshold control is handled machine-side by
+        # `system.profile.battery.setBatteryLimit` (a root systemd service writes
+        # `charge_control_end_threshold` at boot), so the shell no longer needs
+        # the plugin and its udev/group permission dance (no `udevadm trigger` /
+        # re-login required). The v4 shell only loads plugins whose state in
+        # plugins.json has enabled: true.
         # State key is the plain plugin id ("battery-threshold") because it comes from the
         # main/official source; include sourceUrl so no startup migration (and thus no write
         # to this read-only file) is triggered.
@@ -50,7 +38,9 @@
               }
             ];
             states."battery-threshold" = {
-              enabled = true;
+              # Disabled: threshold is applied machine-wide at boot via
+              # `system.profile.battery.setBatteryLimit`.
+              enabled = false;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
             version = 2;
@@ -179,7 +169,6 @@
                     showNoctaliaPerformance = true;
                     showPowerProfiles = true;
                   }
-                  { id = "plugin:battery-threshold"; }
                   {
                     id = "Volume";
                     displayMode = "onhover";

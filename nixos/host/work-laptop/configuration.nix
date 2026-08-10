@@ -21,7 +21,7 @@
     };
   };
 
-  system.profile.battery.setBatteryLimit.enable = false; # Battery charge limit script
+  system.profile.battery.setBatteryLimit.enable = true; # Battery threshold (boot service; replaces noctalia plugin)
 
   database = {
     mysql.enable = false; # MySQL (MariaDB) database service

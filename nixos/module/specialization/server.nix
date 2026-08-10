@@ -35,6 +35,13 @@
           ];
         };
 
+        services.tlp = {
+          enable = true;
+          settings = {
+            STOP_CHARGE_THRESH_BAT0 = 60; # Stops charging at 80%
+          };
+        };
+
         services.getty.autologinUser = "sia";
         services.getty.autologinOnce = true;
 

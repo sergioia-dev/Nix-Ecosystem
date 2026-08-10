@@ -1,6 +1,6 @@
 {
   imports = [
-    ./profile/battery/set-battery-limit.nix
+    ./profile/battery/battery-limit.nix
     ./desktop/gnome/gnomeModule.nix
     ./desktop/kdePlasma/kdePlasmaModule.nix
     ./desktop/cosmic/cosmicModule.nix
