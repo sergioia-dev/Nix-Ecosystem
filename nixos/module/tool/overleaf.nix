@@ -12,7 +12,7 @@
       port = 8080;
       openFirewall = true;
       texlivePackages = with pkgs.texlive; [
-        combined.full-scheme
+        combined.scheme-full
       ];
     };
   };
