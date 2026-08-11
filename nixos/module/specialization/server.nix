@@ -17,14 +17,19 @@
         networking.networkmanager.enable = lib.mkForce true;
 
         services.openssh = {
-          enable = true;
-          ports = [ 2222 ];
+          enable = lib.mkForce true;
+          ports = [ 22 ];
           settings = {
             PasswordAuthentication = false;
             KbdInteractiveAuthentication = false;
             PermitRootLogin = "no";
             AllowUsers = [ "sia" ];
           };
+        };
+
+        tailscale = {
+          enable = lib.mkForce true;
+          mode = "server"; # run sudo tailscale up --ssh
         };
 
         # Open ports in the firewall.

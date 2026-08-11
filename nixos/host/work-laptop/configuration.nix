@@ -30,6 +30,10 @@
   };
 
   tool = {
+    tailscale = {
+      enable = false;
+      mode = "client";
+    };
     docker.enable = false; # Docker container runtime
     nginx.enable = false; # Nginx web server
     openssh.enable = true; # OpenSSH server (port 22, firewall opened)

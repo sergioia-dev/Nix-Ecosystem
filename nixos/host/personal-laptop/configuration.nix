@@ -29,6 +29,10 @@
   };
 
   tool = {
+    tailscale = {
+      enable = true;
+      mode = "client"; # run  sudo tailscape up
+    };
     docker.enable = false; # Docker container runtime
     nginx.enable = false; # Nginx web server
     openssh.enable = true; # OpenSSH server (port 22, firewall opened)
