@@ -91,7 +91,8 @@
         # Minimal boot
         boot.loader.systemd-boot.enable = lib.mkForce true;
         boot.loader.efi.canTouchEfiVariables = lib.mkForce true;
-        services.logind.lidSwitchExternalPower = "ignore";
+
+        services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 
         # Nix settings
         nixpkgs.config.allowUnfree = lib.mkForce true;
