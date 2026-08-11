@@ -29,7 +29,7 @@
 
         tool.tailscale = {
           enable = lib.mkForce true;
-          mode = "server"; # run sudo tailscale up --ssh
+          mode = lib.mkForce "server"; # run sudo tailscale up --ssh
         };
 
         # Open ports in the firewall.
