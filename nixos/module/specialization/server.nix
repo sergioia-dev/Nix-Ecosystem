@@ -27,7 +27,7 @@
           };
         };
 
-        tailscale = {
+        tool.tailscale = {
           enable = lib.mkForce true;
           mode = "server"; # run sudo tailscale up --ssh
         };
@@ -35,9 +35,7 @@
         # Open ports in the firewall.
         networking.firewall = {
           enable = true;
-          allowedTCPPorts = [
-            2222
-          ];
+          allowedTCPPorts = [ 22 ];
         };
 
         systemd = {
