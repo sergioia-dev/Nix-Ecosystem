@@ -78,16 +78,16 @@
     music = {
       spotify.enable = false;
       spotube.enable = false;
-      gapless.enable = false;
+      gapless.enable = true;
     };
 
     messaging = {
-      telegram.enable = true;
-      discord.enable = true;
+      telegram.enable = false;
+      discord.enable = false;
       element.enable = false;
       signal.enable = false;
       karere = {
-        enable = true;
+        enable = false;
         autostart = true;
       };
     };

@@ -57,7 +57,7 @@
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
-            ./nixos/host/work-laptop/configuration.nix
+            ./nixos/host/work/configuration.nix
           ];
         };
 
@@ -65,7 +65,7 @@
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
-            ./nixos/host/personal-laptop/configuration.nix
+            ./nixos/host/personal/configuration.nix
           ];
         };
       };

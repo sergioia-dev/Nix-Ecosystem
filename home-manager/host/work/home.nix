@@ -87,7 +87,7 @@
       element.enable = false;
       signal.enable = false;
       karere = {
-        enable = true;
+        enable = false;
         autostart = true;
       };
     };
