@@ -13,6 +13,11 @@
               "noctalia-shell"
             ];
           }
+          {
+            argv = [
+              "xwayland-satellite"
+            ];
+          }
         ];
         programs.niri.settings.screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
         programs.niri.settings.animations = { };

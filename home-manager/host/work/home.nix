@@ -62,8 +62,8 @@
 
     infomatic = {
       gradia.enable = false;
-      planify.enable = true;
-      only-office.enable = true;
+      planify.enable = false;
+      only-office.enable = false;
       libreoffice.enable = false;
       foliate.enable = false; # doesn't work well
       affine.enable = false;
@@ -94,7 +94,7 @@
 
     other = {
       overleaf.enable = false;
-      secrets.enable = true;
+      secrets.enable = false;
       ferdium.enable = false;
       denaro.enable = false;
       tangram = {

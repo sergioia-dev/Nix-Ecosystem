@@ -31,7 +31,7 @@
 
     tool = {
       penpot.enable = false;
-      postman.enable = false;
+      postman.enable = true;
     };
   };
 
@@ -82,7 +82,7 @@
     };
 
     messaging = {
-      telegram.enable = false;
+      telegram.enable = true;
       discord.enable = false;
       element.enable = false;
       signal.enable = false;

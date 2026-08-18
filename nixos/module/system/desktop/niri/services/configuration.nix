@@ -12,12 +12,17 @@
 
     environment.systemPackages = with pkgs; [
       wl-clipboard
+      xwayland-satellite
       nautilus
       tuigreet
     ];
 
     programs.niri.enable = true;
     services.gvfs.enable = true;
+
+    environment.sessionVariables = {
+      DISPLAY = ":1";
+    };
 
     services.greetd = {
       enable = true;
