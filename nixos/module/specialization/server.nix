@@ -20,7 +20,11 @@
           enable = lib.mkForce true;
           ports = [ 22 ];
           settings = {
-            AcceptEnv = "LANG LC_* COLORTERM";
+            AcceptEnv = [
+              "LANG"
+              "LC_*"
+              "COLORTERM"
+            ];
             PasswordAuthentication = false;
             KbdInteractiveAuthentication = false;
             PermitRootLogin = "no";
