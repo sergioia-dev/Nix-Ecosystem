@@ -21,6 +21,10 @@
             hotkey-overlay.title = "Run an Application";
             action.spawn-sh = [ "noctalia-shell ipc call launcher toggle" ];
           };
+          "Ctrl+semicolon".action.spawn = [
+            "wtype"
+            "ñ"
+          ];
           "Mod+Q" = {
             hotkey-overlay.title = "Toggles quicksettings";
             action.spawn-sh = [ "noctalia-shell ipc call controlCenter toggle" ];

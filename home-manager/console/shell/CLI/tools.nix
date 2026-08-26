@@ -20,6 +20,7 @@
       bat
       zoxide
       curl
+      osc
     ];
 
     home.shellAliases = {

@@ -93,6 +93,7 @@
     };
 
     other = {
+      localsend.enable = false;
       overleaf.enable = false;
       secrets.enable = false;
       ferdium.enable = false;

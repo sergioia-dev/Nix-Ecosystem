@@ -15,6 +15,7 @@
       xwayland-satellite
       nautilus
       tuigreet
+      wtype
     ];
 
     programs.niri.enable = true;

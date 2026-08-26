@@ -28,5 +28,6 @@
     ./others/tangram.nix
     ./others/ferdium.nix
     ./others/overleaf.nix
+    ./others/localsend.nix
   ];
 }

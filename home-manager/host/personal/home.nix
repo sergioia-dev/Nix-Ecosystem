@@ -30,7 +30,7 @@
     };
 
     tool = {
-      penpot.enable = false;
+      penpot.enable = true;
       postman.enable = true;
     };
   };
@@ -93,6 +93,7 @@
     };
 
     other = {
+      localsend.enable = true;
       overleaf.enable = false;
       secrets.enable = true;
       ferdium.enable = false;

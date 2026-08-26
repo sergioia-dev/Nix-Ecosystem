@@ -41,7 +41,13 @@
   hardware.bluetooth.enable = true;
 
   networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    firewall = {
+      allowedTCPPorts = [ 53317 ];
+      allowedUDPPorts = [ 53317 ];
+    };
+  };
 
   time.timeZone = "America/Bogota";
 
