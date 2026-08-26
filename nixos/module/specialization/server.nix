@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -15,6 +16,8 @@
         # Minimal networking
         networking.hostName = config.networking.hostName;
         networking.networkmanager.enable = lib.mkForce true;
+
+        environment.systemPackages = with pkgs; [ ncurses ];
 
         environment.sessionVariables = {
           COLORTERM = "truecolor";
