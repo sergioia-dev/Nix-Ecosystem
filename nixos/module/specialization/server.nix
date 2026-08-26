@@ -41,9 +41,12 @@
           };
         };
 
-        tool.tailscale = {
-          enable = lib.mkForce true;
-          mode = lib.mkForce "server"; # run sudo tailscale up --ssh
+        tool = {
+          tailscale = {
+            enable = lib.mkForce true;
+            mode = lib.mkForce "server"; # run sudo tailscale up --ssh
+          };
+          docker.enable = lib.mkForce true;
         };
 
         # Open ports in the firewall.
