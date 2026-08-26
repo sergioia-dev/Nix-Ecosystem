@@ -16,6 +16,10 @@
         networking.hostName = config.networking.hostName;
         networking.networkmanager.enable = lib.mkForce true;
 
+        environment.sessionVariables = {
+          COLORTERM = "truecolor";
+        };
+
         services.openssh = {
           enable = lib.mkForce true;
           ports = [ 22 ];
