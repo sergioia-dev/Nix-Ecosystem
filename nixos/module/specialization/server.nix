@@ -19,6 +19,8 @@
 
         environment.systemPackages = with pkgs; [ ncurses ];
 
+        environment.enableAllTerminfo = true;
+
         environment.sessionVariables = {
           COLORTERM = "truecolor";
         };
