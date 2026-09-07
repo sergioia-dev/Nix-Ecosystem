@@ -6,6 +6,7 @@
     ./IDE/helix/helix.nix
     ./tool/penpot.nix
     ./tool/postman.nix
+    ./tool/dbeaver.nix
     ./AI/opencode/opencode.nix
   ];
 }

@@ -1,9 +1,12 @@
 { config, lib, ... }:
 {
-  imports = [
+imports = [
     ./custom/extensions.nix
     ./custom/theme.nix
     ./custom/keymaps.nix
+    ./custom/paperwm
+    ./custom/forge
+    ./custom/simple-tiling
     ./apps/geary.nix
   ];
 
@@ -18,6 +21,9 @@
         extensions.enable = lib.mkForce false;
         theme.enable = lib.mkForce false;
         keymaps.enable = lib.mkForce false;
+        paperwm.enable = lib.mkForce false;
+        forge.enable = lib.mkForce false;
+        simple-tiling.enable = lib.mkForce false;
       };
       apps.geary = {
         enable = lib.mkForce false;

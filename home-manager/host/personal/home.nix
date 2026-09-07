@@ -32,6 +32,7 @@
     tool = {
       penpot.enable = true;
       postman.enable = true;
+      dbeaver.enable = true;
     };
   };
 
@@ -72,7 +73,7 @@
       teams.enable = false;
       mendeley.enable = true;
       obs-studio.enable = false;
-      thunderbird.enable = true;
+      thunderbird.enable = false;
     };
 
     music = {
@@ -112,8 +113,11 @@
         enable = false;
         custom = {
           extensions.enable = true;
-          keymaps.enable = true;
           theme.enable = true;
+          keymaps.enable = true;
+          paperwm.enable = false;
+          forge.enable = true;
+          simple-tiling.enable = false;
         };
         apps = {
           geary = {

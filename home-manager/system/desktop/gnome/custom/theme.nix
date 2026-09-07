@@ -88,18 +88,6 @@
               nightthemeswitcher-ondemand-keybiding = [ "" ];
             };
 
-            # PaperWM Extension
-            "org/gnome/shell/extensions/paperwm" = {
-              show-window-position-bar = false;
-              horizontal-margin = 5;
-              selection-border-radius-top = 5;
-              selection-border-size = 5;
-              vertical-margin = 5;
-              vertical-margin-bottom = 5;
-              window-gap = 10;
-              disable-topbar-styling = true;
-              overview-ensure-viewport-animation = 0;
-            };
 
             # V-Shell Extension
             "org/gnome/shell/extensions/vertical-workspaces" = {

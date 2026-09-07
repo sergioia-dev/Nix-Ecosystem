@@ -13,7 +13,6 @@ let
     caffeine
     just-perfection
     top-panel-logo
-    paperwm
     battery-health-charging
     vertical-workspaces
     soft-brightness-plus

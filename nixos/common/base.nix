@@ -26,6 +26,8 @@
     efi.canTouchEfiVariables = true;
   };
 
+  programs.nix-ld.enable = true;
+
   services = {
     pipewire = {
       enable = true;

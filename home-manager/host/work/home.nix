@@ -32,6 +32,7 @@
     tool = {
       penpot.enable = false;
       postman.enable = true;
+      dbeaver.enable = false;
     };
   };
 
@@ -112,8 +113,11 @@
         enable = false;
         custom = {
           extensions.enable = true;
-          keymaps.enable = true;
           theme.enable = true;
+          keymaps.enable = true;
+          paperwm.enable = false;
+          forge.enable = false;
+          simple-tiling.enable = true;
         };
         apps = {
           geary = {
