@@ -110,7 +110,7 @@
         custom = {
           extensions.enable = true;
           theme.enable = true;
-          trayo.enable = true;
+          tray.enable = true;
           keymaps.enable = true;
           paperwm.enable = false;
           forge.enable = false;
@@ -135,6 +135,60 @@
           spawn.enable = true;
           others.enable = true;
         };
+      };
+    };
+  };
+
+  wayland.desktopManager.cosmic = {
+    enable = true;
+
+    appearance.theme = {
+      mode = "dark";
+      dark.accent = {
+        red = 0.3882353;
+        green = 0.8156863;
+        blue = 0.8745098;
+        alpha = 1.0;
+      };
+    };
+
+    configFile."com.system76.CosmicComp" = {
+      version = 1;
+      entries = {
+        border = {
+          width = 2;
+          radius = 4;
+        };
+        xkb_config = {
+          layout = "us";
+          variant = "";
+          options = null;
+          repeat_delay = 600;
+          repeat_rate = 25;
+          rules = "";
+        };
+      };
+    };
+
+    stateFile."com.system76.CosmicBackground" = {
+      version = 1;
+      entries = {
+        wallpapers = [
+          {
+            source = {
+              value = [ "/home/sia/Nix-Ecosystem/assets/rose-pine-nix.webp" ];
+              variant = "Path";
+            };
+            output = "all";
+            filter_by_theme = true;
+            scaling_mode = {
+              value = [ { value = [ 1.0 1.0 ]; variant = "tuple"; } ];
+              variant = "Fit";
+            };
+            filter_method = "Lanczos";
+            sampling_method = "Alphanumeric";
+          }
+        ];
       };
     };
   };
