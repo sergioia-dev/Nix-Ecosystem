@@ -1,8 +1,5 @@
-{
-  lib,
-  inputs,
-  ...
-}:
+{ config, lib, inputs, ... }:
+
 {
   imports = [
     ../../app/appBundle.nix
@@ -104,7 +101,6 @@
         autostart = false;
       };
     };
-
   };
 
   system = {
@@ -114,10 +110,11 @@
         custom = {
           extensions.enable = true;
           theme.enable = true;
+          trayo.enable = true;
           keymaps.enable = true;
           paperwm.enable = false;
-          forge.enable = true;
-          simple-tiling.enable = false;
+          forge.enable = false;
+          simple-tiling.enable = true;
         };
         apps = {
           geary = {
@@ -127,15 +124,8 @@
         };
       };
 
-      cosmic = {
-        enable = false;
-        custom = {
-          keymaps.enable = true;
-        };
-      };
-
       niri = {
-        enable = true;
+        enable = false;
         noctalia.enable = true;
         custom = {
           outputs.enable = true;
@@ -146,7 +136,6 @@
           others.enable = true;
         };
       };
-
     };
   };
 

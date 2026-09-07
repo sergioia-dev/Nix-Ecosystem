@@ -1,8 +1,4 @@
-{
-  lib,
-  inputs,
-  ...
-}:
+{ config, lib, inputs, ... }:
 {
   imports = [
     ../../app/appBundle.nix
@@ -69,11 +65,7 @@
       foliate.enable = false; # doesn't work well
       affine.enable = false;
       logseq.enable = false;
-      wordbook.enable = false;
       teams.enable = false;
-      mendeley.enable = false;
-      obs-studio.enable = false;
-      thunderbird.enable = false;
     };
 
     music = {
@@ -104,16 +96,16 @@
         autostart = false;
       };
     };
-
   };
 
   system = {
     desktop = {
       gnome = {
-        enable = false;
+        enable = true;
         custom = {
           extensions.enable = true;
           theme.enable = true;
+          trayo.enable = true;
           keymaps.enable = true;
           paperwm.enable = false;
           forge.enable = false;
@@ -129,6 +121,10 @@
 
       cosmic = {
         enable = false;
+        theme.mode = "dark";
+        wallpaper.file = "/home/sia/Nix-Ecosystem/assets/rose-pine-nix.webp";
+        window_border.width = 2;
+        window_border.radius = 4;
         custom = {
           keymaps.enable = true;
         };
@@ -146,7 +142,6 @@
           others.enable = true;
         };
       };
-
     };
   };
 

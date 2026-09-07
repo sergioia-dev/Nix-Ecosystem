@@ -8,9 +8,9 @@
   system = {
     desktop = {
       gnome.enable = false; # GNOME Desktop Environment
-      cosmic.enable = false; # COSMIC Desktop Environment (System76)
+      cosmic.enable = true; # COSMIC Desktop Environment (System76)
       kdePlasma.enable = false; # KDE Plasma Desktop Environment
-      niri.enable = true; # Niri Desktop Environment
+      niri.enable = false; # Niri Desktop Environment
     };
 
     specialization = {

@@ -21,9 +21,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    cosmic-manager = {
+      url = "github:HeitorAugustoLN/cosmic-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     overleaf = {
       url = "gitlab:sergioia-dev/overleaf-nix";
-      # url = "git+file:///home/sia/Nix-Overleaf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -44,6 +51,7 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      cosmic-manager,
       ...
     }@inputs:
     let
@@ -75,6 +83,7 @@
           pkgs = nixpkgs.legacyPackages."${system}";
           modules = [
             ./home-manager/host/personal/home.nix
+            cosmic-manager.homeManagerModules.cosmic-manager
           ];
           extraSpecialArgs = { inherit inputs pkgs-unstable; };
         };
@@ -83,6 +92,7 @@
           pkgs = nixpkgs.legacyPackages."${system}";
           modules = [
             ./home-manager/host/work/home.nix
+            cosmic-manager.homeManagerModules.cosmic-manager
           ];
           extraSpecialArgs = { inherit inputs pkgs-unstable; };
         };
