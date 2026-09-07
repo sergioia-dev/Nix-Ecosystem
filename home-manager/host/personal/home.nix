@@ -110,7 +110,6 @@
         custom = {
           extensions.enable = true;
           theme.enable = true;
-          tray.enable = true;
           keymaps.enable = true;
           paperwm.enable = false;
           forge.enable = false;
