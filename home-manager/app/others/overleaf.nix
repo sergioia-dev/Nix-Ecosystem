@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  inputs,
   config,
   ...
 }:
@@ -9,6 +10,11 @@ let
   cfg = config.app.other.overleaf; # shorthand for option path
 in
 {
+
+  imports = [
+    inputs.overleaf.homeManagerModules.default
+  ];
+
   options.app.other.overleaf = {
     enable = lib.mkEnableOption "Enable a local Overleaf Text Editor in the Web
     ";

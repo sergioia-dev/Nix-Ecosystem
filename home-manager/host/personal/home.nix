@@ -1,4 +1,7 @@
-{ config, lib, inputs, ... }:
+{
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -6,9 +9,6 @@
     ../../console/consoleBundle.nix
     ../../development/developmentBundle.nix
     ../../system/systemBundle.nix
-    inputs.overleaf.homeManagerModules.default
-    inputs.noctalia.homeModules.default
-    inputs.niri.homeModules.niri
   ];
 
   development = {
@@ -65,7 +65,7 @@
       libreoffice.enable = false;
       foliate.enable = false; # doesn't work well
       affine.enable = false;
-      logseq.enable = true;
+      logseq.enable = false;
       wordbook.enable = false;
       teams.enable = false;
       mendeley.enable = true;
@@ -80,7 +80,7 @@
     };
 
     messaging = {
-      telegram.enable = true;
+      telegram.enable = false;
       discord.enable = false;
       element.enable = false;
       signal.enable = false;
@@ -135,59 +135,15 @@
           others.enable = true;
         };
       };
-    };
-  };
-
-  wayland.desktopManager.cosmic = {
-    enable = true;
-
-    appearance.theme = {
-      mode = "dark";
-      dark.accent = {
-        red = 0.3882353;
-        green = 0.8156863;
-        blue = 0.8745098;
-        alpha = 1.0;
-      };
-    };
-
-    configFile."com.system76.CosmicComp" = {
-      version = 1;
-      entries = {
-        border = {
-          width = 2;
-          radius = 4;
+      cosmic = {
+        enable = true;
+        custom = {
+          appearance.enable = true;
+          compositor.enable = true;
+          wallpapers.enable = true;
+          panels.enable = true;
+          shortcuts.enable = true;
         };
-        xkb_config = {
-          layout = "us";
-          variant = "";
-          options = null;
-          repeat_delay = 600;
-          repeat_rate = 25;
-          rules = "";
-        };
-      };
-    };
-
-    stateFile."com.system76.CosmicBackground" = {
-      version = 1;
-      entries = {
-        wallpapers = [
-          {
-            source = {
-              value = [ "/home/sia/Nix-Ecosystem/assets/rose-pine-nix.webp" ];
-              variant = "Path";
-            };
-            output = "all";
-            filter_by_theme = true;
-            scaling_mode = {
-              value = [ { value = [ 1.0 1.0 ]; variant = "tuple"; } ];
-              variant = "Fit";
-            };
-            filter_method = "Lanczos";
-            sampling_method = "Alphanumeric";
-          }
-        ];
       };
     };
   };
@@ -201,4 +157,5 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
+
 }

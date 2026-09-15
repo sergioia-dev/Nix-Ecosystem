@@ -14,6 +14,7 @@
     ./custom/layout.nix
     ./custom/spawn.nix
     ./custom/others.nix
+    inputs.niri.homeModules.niri
   ];
 
   options.system.desktop.niri.enable = lib.mkEnableOption "Enable Niri desktop customization";

@@ -1,13 +1,14 @@
-{ config, lib, inputs, ... }:
+{
+  lib,
+  ...
+}:
+
 {
   imports = [
     ../../app/appBundle.nix
     ../../console/consoleBundle.nix
     ../../development/developmentBundle.nix
     ../../system/systemBundle.nix
-    inputs.overleaf.homeManagerModules.default
-    inputs.noctalia.homeModules.default
-    inputs.niri.homeModules.niri
   ];
 
   development = {
@@ -28,7 +29,7 @@
     tool = {
       penpot.enable = false;
       postman.enable = true;
-      dbeaver.enable = false;
+      dbeaver.enable = true;
     };
   };
 
@@ -101,7 +102,7 @@
   system = {
     desktop = {
       gnome = {
-        enable = true;
+        enable = false;
         custom = {
           extensions.enable = true;
           theme.enable = true;
@@ -119,19 +120,8 @@
         };
       };
 
-      cosmic = {
-        enable = false;
-        theme.mode = "dark";
-        wallpaper.file = "/home/sia/Nix-Ecosystem/assets/rose-pine-nix.webp";
-        window_border.width = 2;
-        window_border.radius = 4;
-        custom = {
-          keymaps.enable = true;
-        };
-      };
-
       niri = {
-        enable = true;
+        enable = false;
         noctalia.enable = true;
         custom = {
           outputs.enable = true;
@@ -142,7 +132,22 @@
           others.enable = true;
         };
       };
+
+      cosmic = {
+        enable = true;
+        custom = {
+          appearance.enable = true;
+          compositor.enable = true;
+          wallpapers.enable = true;
+          panels.enable = true;
+          shortcuts.enable = true;
+        };
+      };
     };
+  };
+
+  wayland.desktopManager.cosmic = {
+    enable = false;
   };
 
   home = {

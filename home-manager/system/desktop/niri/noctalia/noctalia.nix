@@ -1,11 +1,16 @@
 {
   pkgs,
   config,
+  inputs,
   lib,
   ...
 }:
 
 {
+
+  imports = [
+    inputs.noctalia.homeModules.default
+  ];
 
   options.system.desktop.niri.noctalia.enable = lib.mkEnableOption "Enable Noctalia Shell for Niri";
 
