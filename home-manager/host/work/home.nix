@@ -106,7 +106,6 @@
         custom = {
           extensions.enable = true;
           theme.enable = true;
-          trayo.enable = true;
           keymaps.enable = true;
           paperwm.enable = false;
           forge.enable = false;
@@ -144,10 +143,6 @@
         };
       };
     };
-  };
-
-  wayland.desktopManager.cosmic = {
-    enable = false;
   };
 
   home = {
