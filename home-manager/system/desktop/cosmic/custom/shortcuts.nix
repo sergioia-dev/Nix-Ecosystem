@@ -51,6 +51,26 @@
             };
             key = "Super+Alt+L";
           }
+          {
+            action = config._module.args.cosmicLib.cosmic.mkRON "enum" {
+              value = [
+                (config._module.args.cosmicLib.cosmic.mkRON "enum" "Up")
+              ];
+              variant = "MoveToOutput";
+            };
+            key = "Super+Alt+K";
+            description = config._module.args.cosmicLib.cosmic.mkRON "optional" "Move window to upper monitor";
+          }
+          {
+            action = config._module.args.cosmicLib.cosmic.mkRON "enum" {
+              value = [
+                (config._module.args.cosmicLib.cosmic.mkRON "enum" "Down")
+              ];
+              variant = "MoveToOutput";
+            };
+            key = "Super+Alt+J";
+            description = config._module.args.cosmicLib.cosmic.mkRON "optional" "Move window to lower monitor";
+          }
 
           {
             action = config._module.args.cosmicLib.cosmic.mkRON "enum" {
@@ -99,12 +119,12 @@
           }
           {
             action = config._module.args.cosmicLib.cosmic.mkRON "enum" "MoveToPreviousWorkspace";
-            key = "Super+Alt+J";
+            key = "Ctrl+Alt+Shift+J";
           }
 
           {
             action = config._module.args.cosmicLib.cosmic.mkRON "enum" "MoveToNextWorkspace";
-            key = "Super+Alt+K";
+            key = "Ctrl+Alt+Shift+K";
           }
           {
             action = config._module.args.cosmicLib.cosmic.mkRON "enum" {

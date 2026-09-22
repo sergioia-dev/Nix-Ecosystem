@@ -15,6 +15,7 @@
       pkgs.cosmic-ext-calculator
       pkgs-unstable.cosmic-viewer
       pkgs.wl-clipboard
+      pkgs.kooha
     ];
 
     services.displayManager.cosmic-greeter.enable = true;
