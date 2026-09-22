@@ -77,13 +77,6 @@
           ];
         };
 
-        server = lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs pkgs-unstable; };
-          modules = [
-            ./nixos/host/server/configuration.nix
-          ];
-        };
       };
 
       homeConfigurations = {

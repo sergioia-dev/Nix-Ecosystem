@@ -14,14 +14,17 @@
     };
 
     specialization = {
-      server.enable = true;
+      server.enable = false;
     };
     shell = {
       zsh.enable = false; # Zsh shell and configuration
     };
   };
 
-  system.profile.battery.setBatteryLimit.enable = true; # Battery threshold (boot service; replaces noctalia plugin)
+  system.profile = {
+    battery.setBatteryLimit.enable = false;
+    boot.scheduleEfiReboot.enable = true;
+  };
 
   database = {
     mysql.enable = false; # MySQL (MariaDB) database service
@@ -31,13 +34,13 @@
 
   tool = {
     tailscale = {
-      enable = false;
-      mode = "client";
+      enable = true;
+      mode = "server";
     };
     docker.enable = false; # Docker container runtime
     nginx.enable = false; # Nginx web server
     openssh.enable = true; # OpenSSH server (port 22, firewall opened)
-    overleaf.enable = false; # Overleaf collaborative LaTeX editor
+    overleaf.enable = true; # Overleaf collaborative LaTeX editor
     podman.enable = false; # Podman (with Docker compatibility)
     steam.enable = false; # Steam gaming platform
     tomcat.enable = false; # Apache Tomcat servlet container

@@ -20,7 +20,11 @@
       zsh.enable = false; # Zsh shell and configuration
     };
   };
-  system.profile.battery.setBatteryLimit.enable = true; # Battery threshold (boot service; replaces noctalia plugin)
+
+  system.profile = {
+    battery.setBatteryLimit.enable = true; # Battery threshold (boot service; replaces noctalia plugin)
+    boot.scheduleEfiReboot.enable = false;
+  };
 
   database = {
     mysql.enable = false; # MySQL (MariaDB) database service
