@@ -23,7 +23,7 @@ in
   config = lib.mkIf cfg.enable {
     services.overleaf = {
       enable = true;
-      port = 8080;
+      port = 65000;
       texlivePackages = with pkgs.texlive; [ combined.scheme-full ];
     };
 

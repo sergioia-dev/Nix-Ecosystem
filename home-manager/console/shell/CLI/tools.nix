@@ -107,6 +107,7 @@ in
       zoxide
       curl
       osc
+      delta
       git-worktree-clone
     ];
 

@@ -29,7 +29,7 @@
     tool = {
       penpot.enable = false;
       postman.enable = true;
-      dbeaver.enable = true;
+      dbeaver.enable = false;
     };
   };
 
@@ -72,7 +72,7 @@
     music = {
       spotify.enable = false;
       spotube.enable = false;
-      gapless.enable = false;
+      gapless.enable = true;
     };
 
     messaging = {
@@ -87,9 +87,9 @@
     };
 
     other = {
-      localsend.enable = false;
-      overleaf.enable = false;
-      secrets.enable = false;
+      localsend.enable = true;
+      overleaf.enable = true;
+      secrets.enable = true;
       ferdium.enable = false;
       denaro.enable = false;
       tangram = {

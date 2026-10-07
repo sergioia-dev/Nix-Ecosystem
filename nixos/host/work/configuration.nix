@@ -22,8 +22,8 @@
   };
 
   system.profile = {
-    battery.setBatteryLimit.enable = false;
-    boot.scheduleEfiReboot.enable = true;
+    battery.setBatteryLimit.enable = true;
+    boot.scheduleEfiReboot.enable = false;
   };
 
   database = {
@@ -34,13 +34,13 @@
 
   tool = {
     tailscale = {
-      enable = true;
-      mode = "server";
+      enable = false;
+      mode = "client";
     };
     docker.enable = false; # Docker container runtime
     nginx.enable = false; # Nginx web server
-    openssh.enable = true; # OpenSSH server (port 22, firewall opened)
-    overleaf.enable = true; # Overleaf collaborative LaTeX editor
+    openssh.enable = false; # OpenSSH server (port 22, firewall opened)
+    overleaf.enable = false; # Overleaf collaborative LaTeX editor
     podman.enable = false; # Podman (with Docker compatibility)
     steam.enable = false; # Steam gaming platform
     tomcat.enable = false; # Apache Tomcat servlet container
