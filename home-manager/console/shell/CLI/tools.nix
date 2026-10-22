@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 let
@@ -64,6 +65,7 @@ let
       git fetch --quiet --prune origin
 
       # Populate refs/remotes/origin/HEAD so we can detect the default branch
+
       git remote set-head origin --auto >/dev/null 2>&1 || true
 
       # 4. Determine default branch if none was passed
@@ -108,6 +110,7 @@ in
       curl
       osc
       delta
+      taskwarrior3
       git-worktree-clone
     ];
 

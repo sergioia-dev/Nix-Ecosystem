@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.console.shell.zsh.enable = lib.mkEnableOption "Enables zsh configuration";
 
   config = lib.mkIf config.console.shell.zsh.enable {
@@ -13,7 +14,7 @@
       syntaxHighlighting.enable = true;
       oh-my-zsh = {
         enable = true;
-        plugins = ["git"];
+        plugins = [ "git" ];
         theme = "eastwood";
       };
       initContent = ''
@@ -21,6 +22,9 @@
         source <(fzf --zsh)
         bindkey -v
         export NIXPKGS_ALLOW_UNFREE=1
+        if [ -f "$HOME/Nix-Ecosystem/.env" ]; then
+            source "$HOME/Nix-Ecosystem/.env"
+        fi
       '';
     };
   };
