@@ -11,6 +11,7 @@
   config = lib.mkIf config.system.desktop.cosmic.services.exclude.enable {
     environment.cosmic.excludePackages = with pkgs; [
       cosmic-edit
+      cosmic-player
     ];
   };
 }

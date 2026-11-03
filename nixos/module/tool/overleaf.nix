@@ -9,7 +9,7 @@
   config = lib.mkIf config.tool.overleaf.enable {
     services.overleaf = {
       enable = true;
-      port = 8080;
+      port = 65000;
       openFirewall = true;
       texlivePackages = with pkgs.texlive; [
         combined.scheme-full

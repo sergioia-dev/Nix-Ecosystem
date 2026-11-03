@@ -1,33 +1,37 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  options.system.desktop.cosmic.custom.shortcuts.enable =
+  options.system.desktop.cosmic.custom.keymaps.enable =
     lib.mkEnableOption "Enable COSMIC shortcut customization";
 
   config =
-    lib.mkIf
-      (config.system.desktop.cosmic.enable && config.system.desktop.cosmic.custom.shortcuts.enable)
+    lib.mkIf (config.system.desktop.cosmic.enable && config.system.desktop.cosmic.custom.keymaps.enable)
       {
         wayland.desktopManager.cosmic.shortcuts = [
           {
             action = config._module.args.cosmicLib.cosmic.mkRON "enum" {
               value = [
-                "firefox"
+                "${lib.getExe pkgs.firefox}"
               ];
               variant = "Spawn";
             };
-            description = config._module.args.cosmicLib.cosmic.mkRON "optional" "Open Firefox";
-            key = "Ctrl+Shift+B";
+            description = config._module.args.cosmicLib.cosmic.mkRON "optional" "Open Web Browser";
+            key = "Super+B";
           }
           {
             action = config._module.args.cosmicLib.cosmic.mkRON "enum" {
               value = [
-                "foot"
+                "${lib.getExe pkgs.cosmic-term}"
               ];
               variant = "Spawn";
             };
-            description = config._module.args.cosmicLib.cosmic.mkRON "optional" "Open Foot terminal";
-            key = "Ctrl+Shift+T";
+            description = config._module.args.cosmicLib.cosmic.mkRON "optional" "Open The terminal";
+            key = "Super+T";
           }
           {
             action = config._module.args.cosmicLib.cosmic.mkRON "enum" "Close";

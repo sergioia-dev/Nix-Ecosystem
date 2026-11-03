@@ -6,10 +6,6 @@
       "https://aseipp-nix-cache.global.ssl.fastly.net"
       "https://cache.nixos.org" # Keep official as fallback
     ];
-    extra-substituters = [ "https://noctalia.cachix.org" ];
-    extra-trusted-public-keys = [
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-    ];
   };
 
   inputs = {
@@ -44,6 +40,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    derivations = {
+      url = "gitlab:sergioia-dev/nix-derivations";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
   outputs =
     {
@@ -61,15 +62,8 @@
     in
     {
       nixosConfigurations = {
-        desktop-work = lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs pkgs-unstable; };
-          modules = [
-            ./nixos/host/work/configuration.nix
-          ];
-        };
 
-        desktop-personal = lib.nixosSystem {
+        desktop = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs pkgs-unstable; };
           modules = [
@@ -84,15 +78,6 @@
           pkgs = nixpkgs.legacyPackages."${system}";
           modules = [
             ./home-manager/host/personal/home.nix
-            cosmic-manager.homeManagerModules.cosmic-manager
-          ];
-          extraSpecialArgs = { inherit inputs pkgs-unstable; };
-        };
-
-        work = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."${system}";
-          modules = [
-            ./home-manager/host/work/home.nix
             cosmic-manager.homeManagerModules.cosmic-manager
           ];
           extraSpecialArgs = { inherit inputs pkgs-unstable; };

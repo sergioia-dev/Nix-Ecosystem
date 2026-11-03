@@ -17,7 +17,7 @@
     substituters = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
   };
 
-  fonts.packages = with pkgs; [ jetbrains-mono ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   services.flatpak.enable = false;
 

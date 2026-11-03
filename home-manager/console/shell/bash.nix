@@ -23,6 +23,7 @@
       enable = true;
       bashrcExtra = ''
         eval "$(zoxide init --cmd cd bash)"
+        eval "$(direnv hook bash)"
         bind 'set show-all-if-ambiguous on'
         set -o vi
         eval "$(fzf --bash)"

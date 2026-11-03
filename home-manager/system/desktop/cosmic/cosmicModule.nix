@@ -1,4 +1,9 @@
-{ config, lib, inputs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -7,7 +12,8 @@
     ./custom/compositor.nix
     ./custom/wallpapers.nix
     ./custom/panels.nix
-    ./custom/shortcuts.nix
+    ./custom/keymaps.nix
+    ./custom/apps.nix
   ];
 
   options.system.desktop.cosmic.enable =
@@ -26,7 +32,8 @@
         compositor.enable = lib.mkForce false;
         wallpapers.enable = lib.mkForce false;
         panels.enable = lib.mkForce false;
-        shortcuts.enable = lib.mkForce false;
+        keymaps.enable = lib.mkForce false;
+        apps.enable = lib.mkForce false;
       };
     };
   };

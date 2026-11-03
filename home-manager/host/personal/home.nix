@@ -27,16 +27,16 @@
     };
 
     tool = {
-      penpot.enable = true;
+      penpot.enable = false;
       postman.enable = true;
-      dbeaver.enable = true;
+      dbeaver.enable = false;
     };
   };
 
   console = {
     terminal = {
       kitty.enable = false;
-      foot.enable = true;
+      foot.enable = false;
     };
 
     multiplexer = {
@@ -60,7 +60,7 @@
 
     infomatic = {
       gradia.enable = false;
-      planify.enable = true;
+      planify.enable = false;
       only-office.enable = true;
       libreoffice.enable = false;
       foliate.enable = false; # doesn't work well
@@ -82,7 +82,7 @@
     messaging = {
       telegram.enable = false;
       discord.enable = false;
-      element.enable = false;
+      element.enable = true;
       signal.enable = false;
       karere = {
         enable = false;
@@ -142,7 +142,8 @@
           compositor.enable = true;
           wallpapers.enable = true;
           panels.enable = true;
-          shortcuts.enable = true;
+          keymaps.enable = true;
+          apps.enable = true;
         };
       };
     };

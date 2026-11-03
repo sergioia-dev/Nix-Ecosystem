@@ -34,15 +34,15 @@
 
   tool = {
     tailscale = {
-      enable = true;
+      enable = false;
       mode = "client"; # run  sudo tailscape up
     };
     docker.enable = false; # Docker container runtime
     nginx.enable = false; # Nginx web server
-    openssh.enable = true; # OpenSSH server (port 22, firewall opened)
+    openssh.enable = false; # OpenSSH server (port 22, firewall opened)
     overleaf.enable = false; # Overleaf collaborative LaTeX editor
     podman.enable = false; # Podman (with Docker compatibility)
-    steam.enable = true; # Steam gaming platform
+    steam.enable = false; # Steam gaming platform
     tomcat.enable = false; # Apache Tomcat servlet container
     virtManager.enable = false; # Virtual Machine Manager (libvirt)
     waydroid.enable = false; # Waydroid Android container

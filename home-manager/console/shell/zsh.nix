@@ -19,6 +19,7 @@
       };
       initContent = ''
         eval "$(zoxide init zsh --cmd cd)"
+        eval "$(direnv hook zsh)"
         source <(fzf --zsh)
         bindkey -v
         export NIXPKGS_ALLOW_UNFREE=1

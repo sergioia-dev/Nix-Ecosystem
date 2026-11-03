@@ -3,8 +3,13 @@
   pkgs,
   pkgs-unstable,
   lib,
+  inputs,
   ...
 }:
+let
+  cosmic-ext-camera =
+    inputs.derivations.packages.${pkgs.stdenv.hostPlatform.system}.cosmic-ext-camera;
+in
 {
   options.system.desktop.cosmic.services.configuration.enable =
     lib.mkEnableOption "Enable Cosmic greeter & session";
@@ -16,7 +21,10 @@
       pkgs-unstable.cosmic-viewer
       pkgs.wl-clipboard
       pkgs.cosmic-ext-applet-external-monitor-brightness
+      pkgs.cosmic-ext-applet-caffeine
       pkgs.kooha
+      cosmic-ext-camera
+      pkgs-unstable.cosmic-player
     ];
     # 1. Enable I2C hardware support
     hardware.i2c.enable = true;
