@@ -82,6 +82,15 @@
           ];
           extraSpecialArgs = { inherit inputs pkgs-unstable; };
         };
+
+        work = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."${system}";
+          modules = [
+            ./home-manager/host/work/home.nix
+            cosmic-manager.homeManagerModules.cosmic-manager
+          ];
+          extraSpecialArgs = { inherit inputs pkgs-unstable; };
+        };
       };
     };
 }

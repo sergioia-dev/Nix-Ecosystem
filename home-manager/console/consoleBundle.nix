@@ -2,6 +2,7 @@
   imports = [
     ./terminal/kitty/kitty.nix
     ./terminal/foot/foot.nix
+    ./terminal/cosmic/cosmic.nix
     ./multiplexer/tmux/tmux.nix
     ./multiplexer/herdr/herdr.nix
     ./shell/bash.nix

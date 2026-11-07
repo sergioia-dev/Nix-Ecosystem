@@ -37,6 +37,7 @@
     terminal = {
       kitty.enable = false;
       foot.enable = false;
+      cosmic.enable = true;
     };
 
     multiplexer = {
@@ -92,7 +93,7 @@
 
     other = {
       localsend.enable = true;
-      overleaf.enable = false;
+      overleaf.enable = true;
       secrets.enable = true;
       ferdium.enable = false;
       denaro.enable = false;
